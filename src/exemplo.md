@@ -1,4 +1,4 @@
-Título
+Floyd-Washall
 ======
 
 Subtítulo
@@ -44,10 +44,33 @@ imagens estão. Essa pasta também deve estar em *img*.
 
 Você também pode inserir código, inclusive especificando a linguagem.
 
+Simulando o codigo
+---------
+
 ``` py
-def f():
-    print('hello world')
+def floyd_warshall(graph):
+    num_vertices = graph.shape[0]
+    dist = graph.copy()
+    iteracao = 0
+    for k in range(num_vertices):
+        for i in range(num_vertices):
+            for j in range(num_vertices):
+                if dist[i][j] > dist[i][k] + dist[k][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+                plot_and_save_matrix(dist, iteracao, i, j)
+                iteracao += 1
+
+    return dist
 ```
+
+A primeira linha do código armazena em uma variável local a quantidade total de vértices no grafo, o que é crucial para definir o número de iterações que cada loop deve executar.
+
+O loop mais externo tem o objetivo de criar um vértice auxiliar, permitindo testar outros caminhos além dos diretos, os quais as veze podem ter pesos infinito, ou seja, não existirem. Ao longo do código vão sendo criados *n* vértices auxiliares, que permitem que testar todas as possibilidades e ter certeza qual deles é o menor caminho.
+
+
+Os loops mais internos percorrem  a matriz e verificam se usando o vértice auxiliar resulta em um caminho mais curto. Essa verificação é feita através da condicional presente no loop mais interno.
+
+:Simulacao
 
 ``` c
 void f() {
