@@ -46,6 +46,7 @@ Você também pode inserir código, inclusive especificando a linguagem.
 
 Simulando o codigo
 ---------
+Abaixo está o código de Floyd Washall , o qual contém 3 loops, que ajudarão a percorrer a matriz e encontrar os menores camninhos entre os vértices.
 
 ``` py
 def floyd_warshall(graph):
@@ -70,7 +71,27 @@ O loop mais externo tem o objetivo de criar um vértice auxiliar, permitindo tes
 
 Os loops mais internos percorrem  a matriz e verificam se usando o vértice auxiliar resulta em um caminho mais curto. Essa verificação é feita através da condicional presente no loop mais interno.
 
+Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo
+
 :Simulacao
+
+!!! Aviso
+Para o exercício abaixo é recomendado fazer passo a passo ao invés de tentar achar a resposta direto.
+!!!
+
+??? Exercício
+
+![](Matriz_incial.png)
+
+Tente simular o que acontecerá com está matriz depois de cada interação do código.
+
+::: Gabarito
+![](Matriz_final.png)
+
+As alterações nessa matriz ocorreram nos vértices que não estavam conectado como, por exemplo, o caminho entre o vértice *1* e o *3*, que antes estava com um custo muito elevado, mas agora tem um custo três uma vez que foi usado vértice 2 como auxiliar. 
+:::
+
+???
 
 ``` c
 void f() {
