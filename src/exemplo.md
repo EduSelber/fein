@@ -46,7 +46,31 @@ Você também pode inserir código, inclusive especificando a linguagem.
 
 Simulando o codigo
 ---------
+
+
+??? Atividade
+
+No codigo é necessário criar *n* vértices auxiliar, como fazer isso.
+::: Gabarito
+
+Para fazer isso o código faz um loop de  *n* interações, que a cada interação cria um vértice auxiliar
+
+:::
+
+???
+
+??? Atividade
+
+Após criar o vértice auxiliar como faz para testar ele e verificar se com ele encontra um caminho mais curto usando ele.
+::: Gabarito
+
+Para fazer isso é necessário dois loops para percorrer a matriz e a cada interação verificar se usando o vertíce auxiliar melhora o custo , caso sim ele atualiza o valor na matriz para este.
+:::
+
+???
 Abaixo está o código de Floyd Washall , o qual contém 3 loops, que ajudarão a percorrer a matriz e encontrar os menores camninhos entre os vértices.
+
+Aqui embaixo está o código de floyd washall 
 
 ``` py
 def floyd_warshall(graph):
@@ -64,12 +88,8 @@ def floyd_warshall(graph):
     return dist
 ```
 
-A primeira linha do código armazena em uma variável local a quantidade total de vértices no grafo, o que é crucial para definir o número de iterações que cada loop deve executar.
+É importante comenta que a primeira linha do código armazena em uma variável local a quantidade total de vértices no grafo, o que é crucial para definir o número de iterações que cada loop deve executar.
 
-O loop mais externo tem o objetivo de criar um vértice auxiliar, permitindo testar outros caminhos além dos diretos, os quais as veze podem ter pesos infinito, ou seja, não existirem. Ao longo do código vão sendo criados *n* vértices auxiliares, que permitem que testar todas as possibilidades e ter certeza qual deles é o menor caminho.
-
-
-Os loops mais internos percorrem  a matriz e verificam se usando o vértice auxiliar resulta em um caminho mais curto. Essa verificação é feita através da condicional presente no loop mais interno.
 
 Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo
 
