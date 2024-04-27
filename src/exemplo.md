@@ -1,48 +1,22 @@
 Floyd-Washall
 ======
-
-Subtítulo
+Objetivo do código 
 ---------
 
-Para criar um parágrafo, basta escrever um texto contínuo, sem pular linhas.
+Este algoritimo tem o objetivo de encontrar todos os caminhos mais curtos entre os  vértices de um grafo 
 
-Você também pode criar
+![](Grafo-Desprog.png)
 
-1. listas;
+Este é um exemplo de grafo, esses grandes circulos são os vértices e as setas que ligam eles são as arestas. Os números em cima das arestas representam os pesos, ou seja, o quanto custa de deslocar de um vértice para o outro. 
+Você pode estar se perguntando "Para que esse algorítmo serve, afinal?". Bem, se observar mais atentamente a figura, notará que nem todos os vértices desse grafo tem uma ligação direta entre eles. Seria impossível então se deslocar do vértice 1 até o 3? E se possível, qual o melhor "caminho" entre eles? 
 
-2. ordenadas,
+Pois bem, todas essas perguntas também são feitas quando estamos pensando em nos locomover de um ponto a outro da cidade. E, ao abrir o Google Maps, somos respondidos! Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas. Devidamente motivados, vamos pensar mais no código em si.
 
-assim como
+Exercício 1
+-----------
+(Este exercício será sobre preencher matriz)
 
-* listas;
 
-* não-ordenadas
-
-e imagens. Lembre que todas as imagens devem estar em uma subpasta *img*.
-
-![](logo.png)
-
-Para tabelas, usa-se a [notação do
-MultiMarkdown](https://fletcher.github.io/MultiMarkdown-6/syntax/tables.html),
-que é muito flexível. Vale a pena abrir esse link para saber todas as
-possibilidades.
-
-| coluna a | coluna b |
-|----------|----------|
-| 1        | 2        |
-
-Ao longo de um texto, você pode usar *itálico*, **negrito**, {red}(vermelho) e
-[[tecla]]. Também pode usar uma equação LaTeX: $f(n) \leq g(n)$. Se for muito
-grande, você pode isolá-la em um parágrafo.
-
-$$\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} \leq 1$$
-
-Para inserir uma animação, use `md :` seguido do nome de uma pasta onde as
-imagens estão. Essa pasta também deve estar em *img*.
-
-:bubble
-
-Você também pode inserir código, inclusive especificando a linguagem.
 
 Simulando o codigo
 ---------
@@ -50,7 +24,7 @@ Simulando o codigo
 
 ??? Atividade
 
-No codigo é necessário criar *n* vértices auxiliar, como fazer isso.
+No codigo é necessário criar *n* vértices auxiliar, como isso é feito.
 ::: Gabarito
 
 Para fazer isso o código faz um loop de  *n* interações, que a cada interação cria um vértice auxiliar
@@ -64,7 +38,7 @@ Para fazer isso o código faz um loop de  *n* interações, que a cada interaç�
 Após criar o vértice auxiliar como faz para testar ele e verificar se com ele encontra um caminho mais curto usando ele.
 ::: Gabarito
 
-Para fazer isso é necessário dois loops para percorrer a matriz e a cada interação verificar se usando o vertíce auxiliar melhora o custo , caso sim ele atualiza o valor na matriz para este.
+Para fazer isso é necessário dois loops para percorrer a matriz e a cada interação verificar se usando o vértice auxiliar  o custo é melhorado, caso sim ele atualiza o valor na matriz para o do vértice auxiliar.
 :::
 
 ???
@@ -113,30 +87,7 @@ As alterações nessa matriz ocorreram nos vértices que não estavam conectado 
 
 ???
 
-``` c
-void f() {
-    printf("hello world\n");
-}
-```
-
-Se não especificar nenhuma, o código fica com colorização de terminal.
-
-```
-hello world
-```
 
 
-!!! Aviso
-Este é um exemplo de aviso, entre `md !!!`.
-!!!
 
 
-??? Exercício
-
-Este é um exemplo de exercício, entre `md ???`.
-
-::: Gabarito
-Este é um exemplo de gabarito, entre `md :::`.
-:::
-
-???
