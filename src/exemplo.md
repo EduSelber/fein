@@ -24,22 +24,24 @@ Exercício 1
 
 O que o código recebe 
 ---------
-Os grafos são recurso visuais, que necessitam uma tradução para os códigos para ajudar ele a melhor entender este grafo.
+
+Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.
 ??? Atividade
 
-Qual é a melhor tradução para este código
+Qual é a melhor tradução do grafo para o código?
 ::: Gabarito
 
 A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
 
 :::
 ???
+Após a tradução do grafo, será gerada uma matriz de tamanho n por n.
 ??? Atividade
 
 Na matriz, o que significa o código ver a posícão linha 1 colouna 2?
 ::: Gabarito
-Nessa posição o código verá o custo do caminho de sair do vértice 1 e ir até o vértice 2
 
+Nessa posição, o código verificará o custo do caminho para sair do vértice 1 e chegar ao vértice 2.
 :::
 ???
 Simulando o codigo
