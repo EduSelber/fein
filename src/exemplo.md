@@ -61,12 +61,13 @@ Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou
 ``` c
 O código começa a ter  uma cara assim :
 Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
+            
         
 ```
 
@@ -101,26 +102,27 @@ O algoritmo realiza essa análise por meio de uma condição que verifica se o c
 Adicionando essa verificação no código:
 ``` c
 Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
-             se o caminho do vértice l ->c > o caminho do vértice l->i->c:
+             se o caminho do vértice vértice_origem ->vértice_destino > o caminho do vértice vértice_origem->vértice_intermediário->vértice_destino:
+                vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
-Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor na matriz correspondente.
+Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor da posição analisada na matriz 
 No final o código deverá ficar com essa cara:
 ``` c
 Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
-             se o caminho do vértice l ->c > o caminho do vértice l->i->c:
-                o custo de l->c é igual ao custo de l->i->c
+             se o caminho do vértice vértice_origem ->vértice_destino > o caminho do vértice vértice_origem->vértice_intermediário->vértice_destino:
+                vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
 Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo
 
