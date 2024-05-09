@@ -147,53 +147,72 @@ Você foi designado a trabalhar na otimização dessa rede.
 
 
 ??? Exercício: Modelando o problema
-    1. Pense, quem será a rodoviária e o que o tempo representa no problema.
+1. Pense, quem será a rodoviária e o que o tempo representa no problema.
 ::: Gabarito
     * Cada estação será um vértice no grafo;
     * Cada rota direta entre duas estações será uma aresta no grafo,  com peso correspondente ao tempo de viagem entre essas duas estações.
-
-    :::
+???
 
 ??? Exercício: Implementando o algoritmo
-    2. Agora você vai implementar o algoritmo. Aplique a situação descrita na matriz inicial, nesse caso baseando nos tempos de viagem diretos entre as estações e se não houver conexão direta, o valor passa a ser infinito. Desenhe o grafo e depois implemente o algoritmo para obter o resultado de todos os pares da tabela.
+2. Agora você vai implementar o algoritmo. Aplique a situação descrita na matriz inicial, nesse caso baseando nos tempos de viagem diretos entre as estações e se não houver conexão direta, o valor passa a ser infinito. Desenhe o grafo e depois implemente o algoritmo para obter o resultado de todos os pares da tabela. 
 
-::: Gabarito
+::: Gabarito 
 ``` c
-void floydWarshall() {
-int dist[V][V], i, j, k;
+    void floydWarshall_rodoviária() {
+        int dist[V][V], i, j, k;
 
-    // Inicializa a matriz de solução da mesma forma que a matriz de entrada do grafo
-    for (i = 0; i < V; i++)
-        for (j = 0; j < V; j++)
-            dist[i][j] = graph[i][j];
- // Adiciona todos os vértices um por um ao conjunto de vértices intermediários.     
-    for (k = 0; k < V; k++) {
-        // vértices como fonte
-        for (i = 0; i < V; i++) {
-            // vértices como destino para a fonte escolhida
-            for (j = 0; j < V; j++) {
+        // Inicializa a matriz de solução da mesma forma que a matriz de entrada do grafo
+        for (i = 0; i < V; i++)
+            for (j = 0; j < V; j++)
+                dist[i][j] = graph[i][j];
+    // Loops utilizados para calcular a menor distância entre todos os pares de 
+    // vértices através de um vértice intermediário.
+        for (k = 0; k < V; k++) { // Para cada 'k' vértice intermediário.
+            for (i = 0; i < V; i++) {   // Para cada 'i' vértice: origem.
+                for (j = 0; j < V; j++) {  // Para cada 'j' vértice: destino.
 
-                if (dist[i][k] + dist[k][j] < dist[i][j])
-                    dist[i][j] = dist[i][k] + dist[k][j];
+                    // atualiza a distância se o caminho for mais curto
+                    if (dist[i][k] + dist[k][j] < dist[i][j])
+                        dist[i][j] = dist[i][k] + dist[k][j];
+                }
             }
         }
     }
-}
-``` 
+```
 :::
+???
 No final, você terá uma matriz de distâncias que fornecerá o tempo de viagem mais curto entre cada estação rodoviária.
 
 Complexidade do Algoritmo
 --------------------------
-Agora nós já podemos supor como será a complexidade do algoritmo. 
+Agora nós já podemos supor como será a complexidade do algoritmo, aspecto crucial para entender em quais contextos ele é mais apropriado.
+
+??? Exercício: Estimando a complexidade do algoritmo
+3. Com base no contexto anterior, analise a função floydMarshall_rodoviaria e estime a sua comlexidade.
 
 :::Gabarito
-O algoritmo tem uma complexidade de O(n^3) . Lembre-se para cada dois vértices, existe uma iteração intermediária.
+O algoritmo tem uma complexidade de O(n^3) . 
+
+??? Reflita um pouco mais...
+Lembre-se para cada dois vértices, existe uma iteração intermediária.
+::: Gabarito
+Analisando o código do algoritmo percebemos que ele é baseado em três loops alinhados iterando sobre os vértices. 
+ * O grafo tem 'n' vértices, cada loop irá iterar 'n' vezes.
+Cada uma das 'n' iterações do loop intermediário é combinada com o 'n' origem e o 'n' destino. 
+ * O total de iterações será n * n * n.
+Assim, a complexidade do algoritmo de Floyd-Warshall é O(n^3).
 :::
+???
 
 Eficiência do Algoritmo
 ------------------------
-E a eficiência do algoritmo?
+??? E a eficiência do algoritmo?
 :::Gabarito
-A eficiência de memória será O(n^2), já que salvamos a matriz em uma última iteração e suas dimensões são n x n.
+A eficiência de memória será O(n^2).
+??? Reflita mais um pouco antes de ver o gabarito
+Leia a resposta novamente.
+::: Gabarito
+Estamos determianado o espaço necessário para armazenar essa matriz.
+Temos que ter um vértice de origem e um vértice de destino, como salvamos a matriz em uma última iteração e suas dimensões são n x n.
+Portanto, a complexidade espacial do algoritmo de Floyd-Warshall é O(n^2).
 :::
