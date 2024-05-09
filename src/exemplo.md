@@ -20,7 +20,8 @@ O algoritmo é uma excelente escolha em situações específicas, como quando é
 
 O que o código recebe 
 ---------
-Os grafos são recurso visuais, que necessitam uma tradução para os códigos para ajudar ele a melhor entender este grafo.
+
+Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.
 ??? Atividade
 
 Qual é a melhor tradução para este código, ou seja, 
@@ -30,13 +31,13 @@ A melhor forma do algoritimo de conseguir intepretar este grafo é através de u
 
 :::
 ???
-
+Após a tradução do grafo, será gerada uma matriz de tamanho n por n.
 ??? Atividade
 
 Na matriz, o que significa o código ver a posícão linha 1 colouna 2?
 ::: Gabarito
-Nessa posição o código verá o custo do caminho de sair do vértice 1 e ir até o vértice 2
 
+Nessa posição, o código verificará o custo do caminho para sair do vértice 1 e chegar ao vértice 2.
 :::
 ???
 
@@ -61,12 +62,13 @@ Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou
 ``` c
 O código começa a ter  uma cara assim :
 Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
+            
         
 ```
 
@@ -101,26 +103,27 @@ O algoritmo realiza essa análise por meio de uma condição que verifica se o c
 Adicionando essa verificação no código:
 ``` c
 Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
-             se o caminho do vértice l ->c > o caminho do vértice l->i->c:
+             se o caminho do vértice vértice_origem ->vértice_destino > o caminho do vértice vértice_origem->vértice_intermediário->vértice_destino:
+                vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
-Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor na matriz correspondente.
+Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor da posição analisada na matriz 
 No final o código deverá ficar com essa cara:
 ``` c
 Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
-             se o caminho do vértice l ->c > o caminho do vértice l->i->c:
-                o custo de l->c é igual ao custo de l->i->c
+             se o caminho do vértice vértice_origem ->vértice_destino > o caminho do vértice vértice_origem->vértice_intermediário->vértice_destino:
+                vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
 Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo
 

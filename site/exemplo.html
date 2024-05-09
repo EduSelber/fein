@@ -36,21 +36,22 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 <h2>Quando se deve usar o algoritmo de Floyd-Warshall?</h2>
 <p>O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho mais curto entre todos os pares de nós em um grafo ponderado, ou seja em cenários que se exige calcular todas as distâncias de pares de vértices.</p>
 <h2>O que o código recebe</h2>
-<p>Os grafos são recurso visuais, que necessitam uma tradução para os códigos para ajudar ele a melhor entender este grafo.</p>
+<p>Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Qual é a melhor tradução para este código, ou seja,</p>
+<p>Qual é a melhor tradução do grafo para o código?, ou seja,</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices</p>
 </details>
 </blockquote>
+<p>Após a tradução do grafo, será gerada uma matriz de tamanho n por n.</p>
 <blockquote class="question">
 <p>Atividade</p>
 <p>Na matriz, o que significa o código ver a posícão linha 1 colouna 2?</p>
 <details class="answer">
 <summary>Gabarito</summary>
-<p>Nessa posição o código verá o custo do caminho de sair do vértice 1 e ir até o vértice 2</p>
+<p>Nessa posição, o código verificará o custo do caminho para sair do vértice 1 e chegar ao vértice 2.</p>
 </details>
 </blockquote>
 <blockquote class="question">
@@ -69,12 +70,13 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 </blockquote>
 <pre><code class="language-c">O código começa a ter  uma cara assim :
 Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
+            
         
 </code></pre>
 <p>Voltando à abordagem de uma pessoa para resolver esse problema, após selecionar um vértice, ela começaria a verificar se há um caminho mais curto utilizando esse vértice como ponto de partida.</p>
@@ -97,25 +99,26 @@ Floyd-Washall:
 </blockquote>
 <p>Adicionando essa verificação no código:</p>
 <pre><code class="language-c">Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
-             se o caminho do vértice l -&gt;c &gt; o caminho do vértice l-&gt;i-&gt;c:
+             se o caminho do vértice vértice_origem -&gt;vértice_destino &gt; o caminho do vértice vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino:
+                vértice_origem -&gt;vértice_destino =vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino
 </code></pre>
-<p>Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor na matriz correspondente.
+<p>Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor da posição analisada na matriz
 No final o código deverá ficar com essa cara:</p>
 <pre><code class="language-c">Floyd-Washall:
-    i= primeiro vértice a ser analisado
-    l=primeiro vértice a ser analisado 
-    c=primeiro vértice a ser analisado
-    enquanto i não for o ultimo vértice:
-        enquanto l não for o ultimo vértice:
+    vértice_intermediário= primeiro vértice a ser analisado
+    vértice_origem=primeiro vértice a ser analisado 
+    vértice_destino=primeiro vértice a ser analisado
+    enquanto vértice_origem não for o ultimo vértice:
+        enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
-             se o caminho do vértice l -&gt;c &gt; o caminho do vértice l-&gt;i-&gt;c:
-                o custo de l-&gt;c é igual ao custo de l-&gt;i-&gt;c
+             se o caminho do vértice vértice_origem -&gt;vértice_destino &gt; o caminho do vértice vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino:
+                vértice_origem -&gt;vértice_destino =vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino
 </code></pre>
 <p>Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo</p>
 <div class="animation"><img class="frame" src="img/Simulacao/distances01.png" alt="1"><img class="frame" src="img/Simulacao/distances02.png" alt="2"><img class="frame" src="img/Simulacao/distances03.png" alt="3"><img class="frame" src="img/Simulacao/distances04.png" alt="4"><img class="frame" src="img/Simulacao/distances05.png" alt="5"><img class="frame" src="img/Simulacao/distances06.png" alt="6"><img class="frame" src="img/Simulacao/distances07.png" alt="7"><img class="frame" src="img/Simulacao/distances08.png" alt="8"><img class="frame" src="img/Simulacao/distances09.png" alt="9"><img class="frame" src="img/Simulacao/distances10.png" alt="10"><img class="frame" src="img/Simulacao/distances11.png" alt="11"><img class="frame" src="img/Simulacao/distances12.png" alt="12"><img class="frame" src="img/Simulacao/distances13.png" alt="13"><img class="frame" src="img/Simulacao/distances14.png" alt="14"><img class="frame" src="img/Simulacao/distances15.png" alt="15"><img class="frame" src="img/Simulacao/distances16.png" alt="16"><img class="frame" src="img/Simulacao/distances17.png" alt="17"><img class="frame" src="img/Simulacao/distances18.png" alt="18"><img class="frame" src="img/Simulacao/distances19.png" alt="19"><img class="frame" src="img/Simulacao/distances20.png" alt="20"><img class="frame" src="img/Simulacao/distances21.png" alt="21"><img class="frame" src="img/Simulacao/distances22.png" alt="22"><img class="frame" src="img/Simulacao/distances23.png" alt="23"><img class="frame" src="img/Simulacao/distances24.png" alt="24"><img class="frame" src="img/Simulacao/distances25.png" alt="25"><img class="frame" src="img/Simulacao/distances26.png" alt="26"><img class="frame" src="img/Simulacao/distances27.png" alt="27"><img class="frame" src="img/Simulacao/distances28.png" alt="28"><img class="frame" src="img/Simulacao/distances29.png" alt="29"><img class="frame" src="img/Simulacao/distances30.png" alt="30"><img class="frame" src="img/Simulacao/distances31.png" alt="31"><img class="frame" src="img/Simulacao/distances32.png" alt="32"><img class="frame" src="img/Simulacao/distances33.png" alt="33"><img class="frame" src="img/Simulacao/distances34.png" alt="34"><img class="frame" src="img/Simulacao/distances35.png" alt="35"><img class="frame" src="img/Simulacao/distances36.png" alt="36"><img class="frame" src="img/Simulacao/distances37.png" alt="37"><img class="frame" src="img/Simulacao/distances38.png" alt="38"><img class="frame" src="img/Simulacao/distances39.png" alt="39"><img class="frame" src="img/Simulacao/distances40.png" alt="40"><img class="frame" src="img/Simulacao/distances41.png" alt="41"><img class="frame" src="img/Simulacao/distances42.png" alt="42"><img class="frame" src="img/Simulacao/distances43.png" alt="43"><img class="frame" src="img/Simulacao/distances44.png" alt="44"><img class="frame" src="img/Simulacao/distances45.png" alt="45"><img class="frame" src="img/Simulacao/distances46.png" alt="46"><img class="frame" src="img/Simulacao/distances47.png" alt="47"><img class="frame" src="img/Simulacao/distances48.png" alt="48"><img class="frame" src="img/Simulacao/distances49.png" alt="49"><img class="frame" src="img/Simulacao/distances50.png" alt="50"><img class="frame" src="img/Simulacao/distances51.png" alt="51"><img class="frame" src="img/Simulacao/distances52.png" alt="52"><img class="frame" src="img/Simulacao/distances53.png" alt="53"><img class="frame" src="img/Simulacao/distances54.png" alt="54"><img class="frame" src="img/Simulacao/distances55.png" alt="55"><img class="frame" src="img/Simulacao/distances56.png" alt="56"><img class="frame" src="img/Simulacao/distances57.png" alt="57"><img class="frame" src="img/Simulacao/distances58.png" alt="58"><img class="frame" src="img/Simulacao/distances59.png" alt="59"><img class="frame" src="img/Simulacao/distances60.png" alt="60"><img class="frame" src="img/Simulacao/distances61.png" alt="61"><img class="frame" src="img/Simulacao/distances62.png" alt="62"><img class="frame" src="img/Simulacao/distances63.png" alt="63"><img class="frame" src="img/Simulacao/distances64.png" alt="64"></div>
