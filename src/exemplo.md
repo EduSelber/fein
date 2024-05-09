@@ -41,9 +41,29 @@ Nessa posição, o código verificará o custo do caminho para sair do vértice 
 :::
 ???
 
+??? Atividade
 
-??? Atividade 
-Tendo em vista o que complete a matriz abaixo
+Complete a matriz abaixo
+
+![](matriz.png)
+
+::: Gabarito
+
+Provavelmente você obteve algo como:
+Onde estão os valores correspondentes a cada vértice e os zeros onde não tem como conectar.
+
+![](matriz_inicial.png)
+:::
+
+??? Atividade
+A nossa matriz ainda não parece completa, existem muitos espaços em branco entre os vértices que não são conectados diretamente. 
+Nós vamos substituir os espaços por infitos, mas será que faz sentido isso mesmo?
+
+![](matriz_infinido.png)
+
+???
+
+Reflita um pouco antes de ir para próxima parte.
 
 Simulando o codigo
 ---------

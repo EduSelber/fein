@@ -39,7 +39,7 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 <p>Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Qual é a melhor tradução do grafo para o código?, ou seja,</p>
+<p>Qual é a melhor tradução para este código, ou seja,</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices</p>
@@ -56,7 +56,22 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 </blockquote>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Tendo em vista o que complete a matriz abaixo</p>
+<p>Complete a matriz abaixo</p>
+<figure class="img"><img src="img/matriz.png" alt=""></figure>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>Provavelmente você obteve algo como:
+Onde estão os valores correspondentes a cada vértice e os zeros onde não tem como conectar.</p>
+<figure class="img"><img src="img/matriz_inicial.png" alt=""></figure>
+</details>
+<blockquote class="question">
+<p>Atividade</p>
+<p>A nossa matriz ainda não parece completa, existem muitos espaços em branco entre os vértices que não são conectados diretamente.
+Nós vamos substituir os espaços por infitos, mas será que faz sentido isso mesmo?</p>
+<figure class="img"><img src="img/matriz_infinido.png" alt=""></figure>
+</blockquote>
+</blockquote>
+<p>Reflita um pouco antes de ir para próxima parte.</p>
 <h2>Simulando o codigo</h2>
 <p>O algoritmo de Floyd-Warshall, como mencionado anteriormente, visa encontrar o caminho mais curto entre todos os vértices de um grafo. Se uma pessoa fosse incumbida dessa tarefa, é provável que ela adotasse um método de teste de todas as combinações possíveis para garantir a identificação dos caminhos mais curtos. O método empregado pelo algoritmo não se distancia muito dessa abordagem.</p>
 <blockquote class="question">
@@ -66,7 +81,6 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 <summary>Gabarito</summary>
 <p>Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou o caminho mais curto entre eles, isso é realizado por meio de loops. Esses loops são essenciais para iterar sobre todos os pares de vértices e calcular os caminhos mais curtos entre eles. É importante comentar que o loops iniciam em 0 e vai até n, sendo n a quantidade de vértices.</p>
 </details>
-</blockquote>
 </blockquote>
 <pre><code class="language-c">O código começa a ter  uma cara assim :
 Floyd-Washall:
@@ -140,7 +154,6 @@ Você foi designado a trabalhar na otimização dessa rede.</p>
 <ol>
 <li>Pense, quem será a rodoviária e o que o tempo representa no problema.</li>
 </ol>
-</blockquote>
 <details class="answer">
 <summary>Gabarito</summary>
 <ul>
@@ -148,49 +161,82 @@ Você foi designado a trabalhar na otimização dessa rede.</p>
 <li>Cada rota direta entre duas estações será uma aresta no grafo,  com peso correspondente ao tempo de viagem entre essas duas estações.</li>
 </ul>
 </details>
+</blockquote>
 <blockquote class="question">
 <p>Exercício: Implementando o algoritmo</p>
 <ol start="2">
 <li>Agora você vai implementar o algoritmo. Aplique a situação descrita na matriz inicial, nesse caso baseando nos tempos de viagem diretos entre as estações e se não houver conexão direta, o valor passa a ser infinito. Desenhe o grafo e depois implemente o algoritmo para obter o resultado de todos os pares da tabela.</li>
 </ol>
-</blockquote>
 <details class="answer">
 <summary>Gabarito</summary>
-<pre><code class="language-c">void floydWarshall() {
-int dist[V][V], i, j, k;
+<pre><code class="language-c">    void floydWarshall_rodoviária() {
+        int dist[V][V], i, j, k;
 
-    // Inicializa a matriz de solução da mesma forma que a matriz de entrada do grafo
-    for (i = 0; i &lt; V; i++)
-        for (j = 0; j &lt; V; j++)
-            dist[i][j] = graph[i][j];
- // Adiciona todos os vértices um por um ao conjunto de vértices intermediários.     
-    for (k = 0; k &lt; V; k++) {
-        // vértices como fonte
-        for (i = 0; i &lt; V; i++) {
-            // vértices como destino para a fonte escolhida
-            for (j = 0; j &lt; V; j++) {
+        // Inicializa a matriz de solução da mesma forma que a matriz de entrada do grafo
+        for (i = 0; i &lt; V; i++)
+            for (j = 0; j &lt; V; j++)
+                dist[i][j] = graph[i][j];
+    // Loops utilizados para calcular a menor distância entre todos os pares de 
+    // vértices através de um vértice intermediário.
+        for (k = 0; k &lt; V; k++) { // Para cada 'k' vértice intermediário.
+            for (i = 0; i &lt; V; i++) {   // Para cada 'i' vértice: origem.
+                for (j = 0; j &lt; V; j++) {  // Para cada 'j' vértice: destino.
 
-                if (dist[i][k] + dist[k][j] &lt; dist[i][j])
-                    dist[i][j] = dist[i][k] + dist[k][j];
+                    // atualiza a distância se o caminho for mais curto
+                    if (dist[i][k] + dist[k][j] &lt; dist[i][j])
+                        dist[i][j] = dist[i][k] + dist[k][j];
+                }
             }
         }
     }
-}
 </code></pre>
 </details>
+</blockquote>
 <p>No final, você terá uma matriz de distâncias que fornecerá o tempo de viagem mais curto entre cada estação rodoviária.</p>
 <h2>Complexidade do Algoritmo</h2>
-<p>Agora nós já podemos supor como será a complexidade do algoritmo.</p>
+<p>Agora nós já podemos supor como será a complexidade do algoritmo, aspecto crucial para entender em quais contextos ele é mais apropriado.</p>
+<blockquote class="question">
+<p>Exercício: Estimando a complexidade do algoritmo</p>
+<ol start="3">
+<li>Com base no contexto anterior, analise a função floydMarshall_rodoviaria e estime a sua comlexidade.</li>
+</ol>
 <details class="answer">
 <summary>Gabarito</summary>
-<p>O algoritmo tem uma complexidade de O(n^3) . Lembre-se para cada dois vértices, existe uma iteração intermediária.</p>
+<p>O algoritmo tem uma complexidade de O(n^3) .</p>
+<blockquote class="question">
+<p>Reflita um pouco mais...</p>
+<p>Lembre-se para cada dois vértices, existe uma iteração intermediária.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>Analisando o código do algoritmo percebemos que ele é baseado em três loops alinhados iterando sobre os vértices.</p>
+<ul>
+<li>O grafo tem ‘n’ vértices, cada loop irá iterar ‘n’ vezes.
+Cada uma das ‘n’ iterações do loop intermediário é combinada com o ‘n’ origem e o ‘n’ destino.</li>
+<li>O total de iterações será n * n * n.
+Assim, a complexidade do algoritmo de Floyd-Warshall é O(n^3).</li>
+</ul>
 </details>
+</blockquote>
+</details>
+</blockquote>
 <h2>Eficiência do Algoritmo</h2>
+<blockquote class="question">
 <p>E a eficiência do algoritmo?</p>
 <details class="answer">
 <summary>Gabarito</summary>
-<p>A eficiência de memória será O(n^2), já que salvamos a matriz em uma última iteração e suas dimensões são n x n.</p>
+<p>A eficiência de memória será O(n^2).</p>
+<blockquote class="question">
+<p>Reflita mais um pouco antes de ver o gabarito</p>
+<p>Leia a resposta novamente.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>Estamos determianado o espaço necessário para armazenar essa matriz.
+Temos que ter um vértice de origem e um vértice de destino, como salvamos a matriz em uma última iteração e suas dimensões são n x n.
+Portanto, a complexidade espacial do algoritmo de Floyd-Warshall é O(n^2).</p>
 </details>
+</blockquote>
+</details>
+</blockquote>
 
 
         </main>
