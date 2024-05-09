@@ -28,18 +28,17 @@
             <h1>Floyd-Washall</h1>
 <h2>Objetivo do código</h2>
 <p>Este algoritimo tem o objetivo de encontrar todos os caminhos mais curtos entre os  vértices de um grafo</p>
-<figure class="img"><img src="img/Grafo-Desprog.png" alt=""></figure>
+<figure class="img"><img src="img/grafo_imagem.png" alt=""></figure>
 <p>Este é um exemplo de grafo, esses grandes círculos são os vértices e as setas que ligam eles são as arestas. Os números em cima das arestas representam os pesos, ou seja, o quanto “custa” se deslocar de um vértice para o outro.
 Você pode estar se perguntando “Para que esse algorítmo serve, afinal?”. Bem, se observar mais atentamente a figura, notará que nem todos os vértices desse grafo tem uma ligação direta entre eles. Seria impossível então se deslocar do vértice 1 até o 3? E se possível, qual o melhor “caminho” entre eles?</p>
-<p>Pois bem, todas essas perguntas também são feitas quando estamos pensando em nos locomover de um ponto a outro da cidade. E, ao abrir o Google Maps, somos respondidos! Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas. Devidamente motivados, vamos pensar mais no código em si.</p>
+<p>Pois bem, todas essas perguntas também são feitas quando estamos pensando em nos locomover de um ponto a outro da cidade. E, ao abrir o Google Maps, somos respondidos! Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas, Devidamente motivados, vamos pensar mais no código em si.</p>
 <h2>Quando se deve usar o algoritmo de Floyd-Warshall?</h2>
 <p>O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho mais curto entre todos os pares de nós em um grafo ponderado, ou seja em cenários que se exige calcular todas as distâncias de pares de vértices.</p>
-<h2>Exercício 1</h2>
 <h2>O que o código recebe</h2>
 <p>Os grafos são recurso visuais, que necessitam uma tradução para os códigos para ajudar ele a melhor entender este grafo.</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Qual é a melhor tradução para este código</p>
+<p>Qual é a melhor tradução para este código, ou seja,</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices</p>
@@ -53,6 +52,9 @@ Você pode estar se perguntando “Para que esse algorítmo serve, afinal?”. B
 <p>Nessa posição o código verá o custo do caminho de sair do vértice 1 e ir até o vértice 2</p>
 </details>
 </blockquote>
+<blockquote class="question">
+<p>Atividade</p>
+<p>Tendo em vista o que complete a matriz abaixo</p>
 <h2>Simulando o codigo</h2>
 <p>O algoritmo de Floyd-Warshall, como mencionado anteriormente, visa encontrar o caminho mais curto entre todos os vértices de um grafo. Se uma pessoa fosse incumbida dessa tarefa, é provável que ela adotasse um método de teste de todas as combinações possíveis para garantir a identificação dos caminhos mais curtos. O método empregado pelo algoritmo não se distancia muito dessa abordagem.</p>
 <blockquote class="question">
@@ -62,6 +64,7 @@ Você pode estar se perguntando “Para que esse algorítmo serve, afinal?”. B
 <summary>Gabarito</summary>
 <p>Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou o caminho mais curto entre eles, isso é realizado por meio de loops. Esses loops são essenciais para iterar sobre todos os pares de vértices e calcular os caminhos mais curtos entre eles. É importante comentar que o loops iniciam em 0 e vai até n, sendo n a quantidade de vértices.</p>
 </details>
+</blockquote>
 </blockquote>
 <pre><code class="language-c">O código começa a ter  uma cara assim :
 Floyd-Washall:

@@ -5,21 +5,17 @@ Objetivo do código
 
 Este algoritimo tem o objetivo de encontrar todos os caminhos mais curtos entre os  vértices de um grafo 
 
-![](Grafo-Desprog.png)
+![](grafo_imagem.png)
 
-Este é um exemplo de grafo, esses grandes círculos são os vértices e as setas que ligam eles são as arestas. Os números em cima das arestas representam os pesos, ou seja, o quanto "custa" se deslocar de um vértice para o outro. 
-Você pode estar se perguntando "Para que esse algorítmo serve, afinal?". Bem, se observar mais atentamente a figura, notará que nem todos os vértices desse grafo tem uma ligação direta entre eles. Seria impossível então se deslocar do vértice 1 até o 3? E se possível, qual o melhor "caminho" entre eles? 
+Este é um exemplo de grafo. Esses grandes círculos são os vértices e as setas que ligam eles são as arestas. Os números em cima das arestas representam os pesos, ou seja, o quanto "custa" se deslocar de um vértice para o outro. 
+Você pode estar se perguntando "Para que esse algorítmo serve, afinal?". Bem, se observar mais atentamente a figura, notará que nem todos os vértices desse grafo tem uma ligação direta entre eles. Seria impossível então se deslocar do vértice 1 até o 3? E se possível, qual o melhor "caminho" entre eles? Qual o melhor caminho entre quaisquer vértices?
 
-Pois bem, todas essas perguntas também são feitas quando estamos pensando em nos locomover de um ponto a outro da cidade. E, ao abrir o Google Maps, somos respondidos! Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas. Devidamente motivados, vamos pensar mais no código em si.
+Pois bem, todas essas perguntas também são feitas quando estamos pensando em nos locomover na cidade. E, ao abrir o Google Maps, somos respondidos!
+Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas, já que tal algorítmo recebe um grafo e devolve outro com todas as menores distâncias. Devidamente motivados, vamos pensar mais no código em si.
 
 Quando se deve usar o algoritmo de Floyd-Warshall?
 -------------------------------------------------
 O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho mais curto entre todos os pares de nós em um grafo ponderado, ou seja em cenários que se exige calcular todas as distâncias de pares de vértices.
-
-
-
-Exercício 1
------------
 
 
 O que o código recebe 
@@ -27,13 +23,14 @@ O que o código recebe
 Os grafos são recurso visuais, que necessitam uma tradução para os códigos para ajudar ele a melhor entender este grafo.
 ??? Atividade
 
-Qual é a melhor tradução para este código
+Qual é a melhor tradução para este código, ou seja, 
 ::: Gabarito
 
 A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
 
 :::
 ???
+
 ??? Atividade
 
 Na matriz, o que significa o código ver a posícão linha 1 colouna 2?
@@ -42,6 +39,11 @@ Nessa posição o código verá o custo do caminho de sair do vértice 1 e ir at
 
 :::
 ???
+
+
+??? Atividade 
+Tendo em vista o que complete a matriz abaixo
+
 Simulando o codigo
 ---------
 
