@@ -22,77 +22,101 @@ Exercício 1
 -----------
 
 
+O que o código recebe 
+---------
+Os grafos são recurso visuais, que necessitam uma tradução para os códigos para ajudar ele a melhor entender este grafo.
+??? Atividade
 
+Qual é a melhor tradução para este código
+::: Gabarito
 
+A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
+
+:::
+??? Atividade
+
+Na matriz, o que significa o código ver a posícão linha 1 colouna 2?
+::: Gabarito
+Nessa posição o código verá o custo do caminho de sair do vértice 1 e ir até o vértice 2
+
+:::
 Simulando o codigo
 ---------
 
+O algoritmo de Floyd-Warshall, como mencionado anteriormente, visa encontrar o caminho mais curto entre todos os vértices de um grafo. Se uma pessoa fosse incumbida dessa tarefa, é provável que ela adotasse um método de teste de todas as combinações possíveis para garantir a identificação dos caminhos mais curtos. O método empregado pelo algoritmo não se distancia muito dessa abordagem.
 
 ??? Atividade
 
-No codigo é necessário criar *n* vértices auxiliar, como isso é feito.
+Ok , mas como que o algoritimo testa todos os vértices para ter garantia que encontrou o caminho mais curto entre eles?
 ::: Gabarito
 
-Para fazer isso o código faz um loop de  *n* interações, que a cada interação cria um vértice auxiliar
+Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou o caminho mais curto entre eles, isso é realizado por meio de loops. Esses loops são essenciais para iterar sobre todos os pares de vértices e calcular os caminhos mais curtos entre eles. É importante comentar que o loops iniciam em 0 e vai até n, sendo n a quantidade de vértices. 
 
 :::
+O código começa a ter  uma cara assim :
+Floyd-Washall:
+    i= primeiro vértice a ser analisado
+    l=primeiro vértice a ser analisado 
+    c=primeiro vértice a ser analisado
+    enquanto i não for o ultimo vértice:
+        enquanto l não for o ultimo vértice:
+            enquanto c não for o ultimo vértice:
+        
 
+
+Voltando à abordagem de uma pessoa para resolver esse problema, após selecionar um vértice, ela começaria a verificar se há um caminho mais curto utilizando esse vértice como ponto de partida.
 ???
 
 ??? Atividade
 
-Após criar o vértice auxiliar como faz para testar ele e verificar se com ele encontra um caminho mais curto usando ele.
+Como você faria essa verificação?
 ::: Gabarito
 
-Para fazer isso é necessário dois loops para percorrer a matriz e a cada interação verificar se usando o vértice auxiliar  o custo é melhorado, caso sim ele atualiza o valor na matriz para o do vértice auxiliar.
+Se sua resposta envolve checar os custos das arestas, está correta, pois, afinal, esse é o único parâmetro que determina se um caminho é realmente o mais curto.
 :::
 
 ???
-Abaixo está o código de Floyd Washall , o qual contém 3 loops, que ajudarão a percorrer a matriz e encontrar os menores camninhos entre os vértices.
 
-Aqui embaixo está o código de floyd washall 
+Agora precisamos entender como o código realiza essa tarefa, ou seja, como ele pode garantir qual caminho é realmente o mais curto.
 
-``` py
-def floyd_warshall(graph):
-    num_vertices = graph.shape[0]
-    dist = graph.copy()
-    iteracao = 0
-    for k in range(num_vertices):
-        for i in range(num_vertices):
-            for j in range(num_vertices):
-                if dist[i][j] > dist[i][k] + dist[k][j]:
-                    dist[i][j] = dist[i][k] + dist[k][j]
-                plot_and_save_matrix(dist, iteracao, i, j)
-                iteracao += 1
 
-    return dist
-```
 
-É importante comentar que a primeira linha do código armazena em uma variável local a quantidade total de vértices no grafo, o que é crucial para definir o número de iterações que cada loop deve executar.
+??? Atividade
 
+Como o codigo pode ter esta certeza de qual caminho ter o menor custo 
+::: Gabarito
+
+
+O algoritmo realiza essa análise por meio de uma condição que verifica se o caminho direto entre dois vértices é o mais curto, ou se o caminho do primeiro vértice ao vértice auxiliar em uso, e deste último ao vértice de destino, é mais curto.
+
+:::
+
+???
+Adicionando essa verificação no código:
+Floyd-Washall:
+    i= primeiro vértice a ser analisado
+    l=primeiro vértice a ser analisado 
+    c=primeiro vértice a ser analisado
+    enquanto i não for o ultimo vértice:
+        enquanto l não for o ultimo vértice:
+            enquanto c não for o ultimo vértice:
+             se o caminho do vértice l ->c > o caminho do vértice l->i->c:
+
+Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor na matriz correspondente.
+No final o código deverá ficar com essa cara:
+Floyd-Washall:
+    i= primeiro vértice a ser analisado
+    l=primeiro vértice a ser analisado 
+    c=primeiro vértice a ser analisado
+    enquanto i não for o ultimo vértice:
+        enquanto l não for o ultimo vértice:
+            enquanto c não for o ultimo vértice:
+             se o caminho do vértice l ->c > o caminho do vértice l->i->c:
+                o custo de l->c é igual ao custo de l->i->c
 
 Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo
 
 :Simulacao
-
-!!! Aviso
-Para o exercício abaixo é recomendado fazer passo a passo ao invés de tentar achar a resposta direto.
-!!!
-
-??? Exercício
-
-![](Matriz_incial.png)
-
-Tente simular o que acontecerá com está matriz depois de cada iteração do código.
-
-::: Gabarito
-![](Matriz_final.png)
-
-As alterações nessa matriz ocorreram nos vértices que não estavam conectado como, por exemplo, o caminho entre o vértice *1* e o *3*, que antes estava com um custo muito elevado, mas agora tem um custo três uma vez que foi usado vértice 2 como auxiliar. 
-:::
-
-???
-
 
 
 Aplicações práticas em que o algoritmo deve ser usado
@@ -162,8 +186,3 @@ E a eficiência do algoritmo?
 :::Gabarito
 A eficiência de memória será O(n^2), já que salvamos a matriz em uma última iteração e suas dimensões são n x n.
 :::
-
-
-
-
-
