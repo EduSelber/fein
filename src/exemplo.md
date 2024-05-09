@@ -33,6 +33,7 @@ Qual é a melhor tradução para este código
 A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
 
 :::
+???
 ??? Atividade
 
 Na matriz, o que significa o código ver a posícão linha 1 colouna 2?
@@ -40,6 +41,7 @@ Na matriz, o que significa o código ver a posícão linha 1 colouna 2?
 Nessa posição o código verá o custo do caminho de sair do vértice 1 e ir até o vértice 2
 
 :::
+???
 Simulando o codigo
 ---------
 
@@ -53,6 +55,8 @@ Ok , mas como que o algoritimo testa todos os vértices para ter garantia que en
 Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou o caminho mais curto entre eles, isso é realizado por meio de loops. Esses loops são essenciais para iterar sobre todos os pares de vértices e calcular os caminhos mais curtos entre eles. É importante comentar que o loops iniciam em 0 e vai até n, sendo n a quantidade de vértices. 
 
 :::
+???
+``` c
 O código começa a ter  uma cara assim :
 Floyd-Washall:
     i= primeiro vértice a ser analisado
@@ -62,10 +66,10 @@ Floyd-Washall:
         enquanto l não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
         
-
+```
 
 Voltando à abordagem de uma pessoa para resolver esse problema, após selecionar um vértice, ela começaria a verificar se há um caminho mais curto utilizando esse vértice como ponto de partida.
-???
+
 
 ??? Atividade
 
@@ -93,6 +97,7 @@ O algoritmo realiza essa análise por meio de uma condição que verifica se o c
 
 ???
 Adicionando essa verificação no código:
+``` c
 Floyd-Washall:
     i= primeiro vértice a ser analisado
     l=primeiro vértice a ser analisado 
@@ -101,9 +106,10 @@ Floyd-Washall:
         enquanto l não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
              se o caminho do vértice l ->c > o caminho do vértice l->i->c:
-
+```
 Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor na matriz correspondente.
 No final o código deverá ficar com essa cara:
+``` c
 Floyd-Washall:
     i= primeiro vértice a ser analisado
     l=primeiro vértice a ser analisado 
@@ -113,7 +119,7 @@ Floyd-Washall:
             enquanto c não for o ultimo vértice:
              se o caminho do vértice l ->c > o caminho do vértice l->i->c:
                 o custo de l->c é igual ao custo de l->i->c
-
+```
 Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo
 
 :Simulacao
