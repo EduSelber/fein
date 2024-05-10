@@ -3,19 +3,19 @@ Floyd-Washall
 Objetivo do código 
 ---------
 
-Este algoritimo tem o objetivo de encontrar todos os caminhos mais curtos entre os  vértices de um grafo 
+Este algorítimo tem o objetivo de encontrar todos os caminhos mais curtos entre os  vértices de um grafo 
 
 ![](grafo_imagem.png)
 
 Este é um exemplo de grafo. Esses grandes círculos são os vértices e as setas que ligam eles são as arestas. Os números em cima das arestas representam os pesos, ou seja, o quanto "custa" se deslocar de um vértice para o outro. 
-Você pode estar se perguntando "Para que esse algorítmo serve, afinal?". Bem, se observar mais atentamente a figura, notará que nem todos os vértices desse grafo tem uma ligação direta entre eles. Seria impossível então se deslocar do vértice 1 até o 3? E se possível, qual o melhor "caminho" entre eles? Qual o melhor caminho entre quaisquer vértices?
+Você pode estar se perguntando "Para que esse algoritmo serve, afinal?". Bem, se observar mais atentamente a figura, notará que nem todos os vértices desse grafo tem uma ligação direta entre eles. Seria impossível então se deslocar do vértice 1 até o 3? E se possível, qual o melhor "caminho" entre eles? Qual o melhor caminho entre quaisquer vértices?
 
 Pois bem, todas essas perguntas também são feitas quando estamos pensando em nos locomover na cidade. E, ao abrir o Google Maps, somos respondidos!
-Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas, já que tal algorítmo recebe um grafo e devolve outro com todas as menores distâncias. Devidamente motivados, vamos pensar mais no código em si.
+Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas, já que tal algoritmo recebe um grafo e devolve outro com todas as menores distâncias. Devidamente motivados, vamos pensar mais no código em si.
 
 Quando se deve usar o algoritmo de Floyd-Warshall?
 -------------------------------------------------
-O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho mais curto entre todos os pares de nós em um grafo ponderado, ou seja em cenários que se exige calcular todas as distâncias de pares de vértices.
+O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho mais curto entre todos os pares de nós em um grafo ponderado, ou seja, em cenários que se exige calcular todas as distâncias de pares de vértices.
 
 
 O que o código recebe 
@@ -24,7 +24,7 @@ O que o código recebe
 Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.
 ??? Atividade
 
-Qual é a melhor tradução para este código, ou seja, 
+Qual é a melhor tradução para este grafo, ou seja, que estrutura utilizada em programação seria a mais adequada para representá-lo no código?
 ::: Gabarito
 
 A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
@@ -34,7 +34,7 @@ A melhor forma do algoritimo de conseguir intepretar este grafo é através de u
 Após a tradução do grafo, será gerada uma matriz de tamanho n por n.
 ??? Atividade
 
-Na matriz, o que significa o código ver a posícão linha 1 colouna 2?
+Na matriz, o que significa o código ver a posição linha 1 colouna 2?
 ::: Gabarito
 
 Nessa posição, o código verificará o custo do caminho para sair do vértice 1 e chegar ao vértice 2.
@@ -43,16 +43,19 @@ Nessa posição, o código verificará o custo do caminho para sair do vértice 
 
 ??? Atividade
 
-Complete a matriz abaixo
+Complete a matriz abaixo de acordo com o grafo acima.
 
 ![](matriz.png)
 
 ::: Gabarito
 
 Provavelmente você obteve algo como:
-Onde estão os valores correspondentes a cada vértice e os zeros onde não tem como conectar.
 
 ![](matriz_inicial.png)
+
+onde os valores representados no grafo são os pesos dos caminhos entre os vértices. É prudente concluir que o peso do caminho de um grafo até ele mesmo seja zero.
+
+
 :::
 
 ??? Atividade
@@ -136,18 +139,18 @@ Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo a
 No final o código deverá ficar com essa cara:
 ``` c
 Floyd-Washall:
-    vértice_intermediário= primeiro vértice a ser analisado
-    vértice_origem=primeiro vértice a ser analisado 
-    vértice_destino=primeiro vértice a ser analisado
+    vértice_intermediário = primeiro vértice a ser analisado
+    vértice_origem = primeiro vértice a ser analisado 
+    vértice_destino = primeiro vértice a ser analisado
     enquanto vértice_origem não for o ultimo vértice:
         enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
              se o caminho do vértice vértice_origem ->vértice_destino > o caminho do vértice vértice_origem->vértice_intermediário->vértice_destino:
                 vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
-Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo
+Acompanhe pela animação o que acontece com a matriz depois de cada iteração do algoritimo
 
-:Simulacao
+:simulacao
 
 
 Aplicações práticas em que o algoritmo deve ser usado
@@ -226,10 +229,12 @@ Assim, a complexidade do algoritmo de Floyd-Warshall é O(n^3).
 
 Eficiência do Algoritmo
 ------------------------
-??? E a eficiência do algoritmo?
+??? Exercicio
+E a eficiência do algoritmo?
 :::Gabarito
 A eficiência de memória será O(n^2).
-??? Reflita mais um pouco antes de ver o gabarito
+??? Exercicio
+Reflita mais um pouco antes de ver o gabarito
 Leia a resposta novamente.
 ::: Gabarito
 Estamos determianado o espaço necessário para armazenar essa matriz.

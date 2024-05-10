@@ -27,19 +27,19 @@
 
             <h1>Floyd-Washall</h1>
 <h2>Objetivo do código</h2>
-<p>Este algoritimo tem o objetivo de encontrar todos os caminhos mais curtos entre os  vértices de um grafo</p>
+<p>Este algorítimo tem o objetivo de encontrar todos os caminhos mais curtos entre os  vértices de um grafo</p>
 <figure class="img"><img src="img/grafo_imagem.png" alt=""></figure>
 <p>Este é um exemplo de grafo. Esses grandes círculos são os vértices e as setas que ligam eles são as arestas. Os números em cima das arestas representam os pesos, ou seja, o quanto “custa” se deslocar de um vértice para o outro.
-Você pode estar se perguntando “Para que esse algorítmo serve, afinal?”. Bem, se observar mais atentamente a figura, notará que nem todos os vértices desse grafo tem uma ligação direta entre eles. Seria impossível então se deslocar do vértice 1 até o 3? E se possível, qual o melhor “caminho” entre eles? Qual o melhor caminho entre quaisquer vértices?</p>
+Você pode estar se perguntando “Para que esse algoritmo serve, afinal?”. Bem, se observar mais atentamente a figura, notará que nem todos os vértices desse grafo tem uma ligação direta entre eles. Seria impossível então se deslocar do vértice 1 até o 3? E se possível, qual o melhor “caminho” entre eles? Qual o melhor caminho entre quaisquer vértices?</p>
 <p>Pois bem, todas essas perguntas também são feitas quando estamos pensando em nos locomover na cidade. E, ao abrir o Google Maps, somos respondidos!
-Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas, já que tal algorítmo recebe um grafo e devolve outro com todas as menores distâncias. Devidamente motivados, vamos pensar mais no código em si.</p>
+Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para solucionar esses problemas, já que tal algoritmo recebe um grafo e devolve outro com todas as menores distâncias. Devidamente motivados, vamos pensar mais no código em si.</p>
 <h2>Quando se deve usar o algoritmo de Floyd-Warshall?</h2>
-<p>O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho mais curto entre todos os pares de nós em um grafo ponderado, ou seja em cenários que se exige calcular todas as distâncias de pares de vértices.</p>
+<p>O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho mais curto entre todos os pares de nós em um grafo ponderado, ou seja, em cenários que se exige calcular todas as distâncias de pares de vértices.</p>
 <h2>O que o código recebe</h2>
 <p>Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Qual é a melhor tradução para este código, ou seja,</p>
+<p>Qual é a melhor tradução para este grafo, ou seja, que estrutura utilizada em programação seria a mais adequada para representá-lo no código?</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices</p>
@@ -48,7 +48,7 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 <p>Após a tradução do grafo, será gerada uma matriz de tamanho n por n.</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Na matriz, o que significa o código ver a posícão linha 1 colouna 2?</p>
+<p>Na matriz, o que significa o código ver a posição linha 1 colouna 2?</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>Nessa posição, o código verificará o custo do caminho para sair do vértice 1 e chegar ao vértice 2.</p>
@@ -56,13 +56,13 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 </blockquote>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Complete a matriz abaixo</p>
+<p>Complete a matriz abaixo de acordo com o grafo acima.</p>
 <figure class="img"><img src="img/matriz.png" alt=""></figure>
 <details class="answer">
 <summary>Gabarito</summary>
-<p>Provavelmente você obteve algo como:
-Onde estão os valores correspondentes a cada vértice e os zeros onde não tem como conectar.</p>
+<p>Provavelmente você obteve algo como:</p>
 <figure class="img"><img src="img/matriz_inicial.png" alt=""></figure>
+<p>onde os valores representados no grafo são os pesos dos caminhos entre os vértices. É prudente concluir que o peso do caminho de um grafo até ele mesmo seja zero.</p>
 </details>
 <blockquote class="question">
 <p>Atividade</p>
@@ -125,17 +125,17 @@ Floyd-Washall:
 <p>Se o uso deste vértice resultar em um caminho com um custo menor, o algoritmo atualiza o valor da posição analisada na matriz
 No final o código deverá ficar com essa cara:</p>
 <pre><code class="language-c">Floyd-Washall:
-    vértice_intermediário= primeiro vértice a ser analisado
-    vértice_origem=primeiro vértice a ser analisado 
-    vértice_destino=primeiro vértice a ser analisado
+    vértice_intermediário = primeiro vértice a ser analisado
+    vértice_origem = primeiro vértice a ser analisado 
+    vértice_destino = primeiro vértice a ser analisado
     enquanto vértice_origem não for o ultimo vértice:
         enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
              se o caminho do vértice vértice_origem -&gt;vértice_destino &gt; o caminho do vértice vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino:
                 vértice_origem -&gt;vértice_destino =vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino
 </code></pre>
-<p>Acompanhe pela animação, o que acontece com a matriz depois de cada interação do algoritimo</p>
-<div class="animation"><img class="frame" src="img/Simulacao/distances01.png" alt="1"><img class="frame" src="img/Simulacao/distances02.png" alt="2"><img class="frame" src="img/Simulacao/distances03.png" alt="3"><img class="frame" src="img/Simulacao/distances04.png" alt="4"><img class="frame" src="img/Simulacao/distances05.png" alt="5"><img class="frame" src="img/Simulacao/distances06.png" alt="6"><img class="frame" src="img/Simulacao/distances07.png" alt="7"><img class="frame" src="img/Simulacao/distances08.png" alt="8"><img class="frame" src="img/Simulacao/distances09.png" alt="9"><img class="frame" src="img/Simulacao/distances10.png" alt="10"><img class="frame" src="img/Simulacao/distances11.png" alt="11"><img class="frame" src="img/Simulacao/distances12.png" alt="12"><img class="frame" src="img/Simulacao/distances13.png" alt="13"><img class="frame" src="img/Simulacao/distances14.png" alt="14"><img class="frame" src="img/Simulacao/distances15.png" alt="15"><img class="frame" src="img/Simulacao/distances16.png" alt="16"><img class="frame" src="img/Simulacao/distances17.png" alt="17"><img class="frame" src="img/Simulacao/distances18.png" alt="18"><img class="frame" src="img/Simulacao/distances19.png" alt="19"><img class="frame" src="img/Simulacao/distances20.png" alt="20"><img class="frame" src="img/Simulacao/distances21.png" alt="21"><img class="frame" src="img/Simulacao/distances22.png" alt="22"><img class="frame" src="img/Simulacao/distances23.png" alt="23"><img class="frame" src="img/Simulacao/distances24.png" alt="24"><img class="frame" src="img/Simulacao/distances25.png" alt="25"><img class="frame" src="img/Simulacao/distances26.png" alt="26"><img class="frame" src="img/Simulacao/distances27.png" alt="27"><img class="frame" src="img/Simulacao/distances28.png" alt="28"><img class="frame" src="img/Simulacao/distances29.png" alt="29"><img class="frame" src="img/Simulacao/distances30.png" alt="30"><img class="frame" src="img/Simulacao/distances31.png" alt="31"><img class="frame" src="img/Simulacao/distances32.png" alt="32"><img class="frame" src="img/Simulacao/distances33.png" alt="33"><img class="frame" src="img/Simulacao/distances34.png" alt="34"><img class="frame" src="img/Simulacao/distances35.png" alt="35"><img class="frame" src="img/Simulacao/distances36.png" alt="36"><img class="frame" src="img/Simulacao/distances37.png" alt="37"><img class="frame" src="img/Simulacao/distances38.png" alt="38"><img class="frame" src="img/Simulacao/distances39.png" alt="39"><img class="frame" src="img/Simulacao/distances40.png" alt="40"><img class="frame" src="img/Simulacao/distances41.png" alt="41"><img class="frame" src="img/Simulacao/distances42.png" alt="42"><img class="frame" src="img/Simulacao/distances43.png" alt="43"><img class="frame" src="img/Simulacao/distances44.png" alt="44"><img class="frame" src="img/Simulacao/distances45.png" alt="45"><img class="frame" src="img/Simulacao/distances46.png" alt="46"><img class="frame" src="img/Simulacao/distances47.png" alt="47"><img class="frame" src="img/Simulacao/distances48.png" alt="48"><img class="frame" src="img/Simulacao/distances49.png" alt="49"><img class="frame" src="img/Simulacao/distances50.png" alt="50"><img class="frame" src="img/Simulacao/distances51.png" alt="51"><img class="frame" src="img/Simulacao/distances52.png" alt="52"><img class="frame" src="img/Simulacao/distances53.png" alt="53"><img class="frame" src="img/Simulacao/distances54.png" alt="54"><img class="frame" src="img/Simulacao/distances55.png" alt="55"><img class="frame" src="img/Simulacao/distances56.png" alt="56"><img class="frame" src="img/Simulacao/distances57.png" alt="57"><img class="frame" src="img/Simulacao/distances58.png" alt="58"><img class="frame" src="img/Simulacao/distances59.png" alt="59"><img class="frame" src="img/Simulacao/distances60.png" alt="60"><img class="frame" src="img/Simulacao/distances61.png" alt="61"><img class="frame" src="img/Simulacao/distances62.png" alt="62"><img class="frame" src="img/Simulacao/distances63.png" alt="63"><img class="frame" src="img/Simulacao/distances64.png" alt="64"></div>
+<p>Acompanhe pela animação o que acontece com a matriz depois de cada iteração do algoritimo</p>
+<div class="animation"><img class="frame" src="img/simulacao/distances01.png" alt="1"><img class="frame" src="img/simulacao/distances02.png" alt="2"><img class="frame" src="img/simulacao/distances03.png" alt="3"><img class="frame" src="img/simulacao/distances04.png" alt="4"><img class="frame" src="img/simulacao/distances05.png" alt="5"><img class="frame" src="img/simulacao/distances06.png" alt="6"><img class="frame" src="img/simulacao/distances07.png" alt="7"><img class="frame" src="img/simulacao/distances08.png" alt="8"><img class="frame" src="img/simulacao/distances09.png" alt="9"><img class="frame" src="img/simulacao/distances10.png" alt="10"><img class="frame" src="img/simulacao/distances11.png" alt="11"><img class="frame" src="img/simulacao/distances12.png" alt="12"><img class="frame" src="img/simulacao/distances13.png" alt="13"><img class="frame" src="img/simulacao/distances14.png" alt="14"><img class="frame" src="img/simulacao/distances15.png" alt="15"><img class="frame" src="img/simulacao/distances16.png" alt="16"><img class="frame" src="img/simulacao/distances17.png" alt="17"><img class="frame" src="img/simulacao/distances18.png" alt="18"><img class="frame" src="img/simulacao/distances19.png" alt="19"><img class="frame" src="img/simulacao/distances20.png" alt="20"><img class="frame" src="img/simulacao/distances21.png" alt="21"><img class="frame" src="img/simulacao/distances22.png" alt="22"><img class="frame" src="img/simulacao/distances23.png" alt="23"><img class="frame" src="img/simulacao/distances24.png" alt="24"><img class="frame" src="img/simulacao/distances25.png" alt="25"><img class="frame" src="img/simulacao/distances26.png" alt="26"><img class="frame" src="img/simulacao/distances27.png" alt="27"><img class="frame" src="img/simulacao/distances28.png" alt="28"><img class="frame" src="img/simulacao/distances29.png" alt="29"><img class="frame" src="img/simulacao/distances30.png" alt="30"><img class="frame" src="img/simulacao/distances31.png" alt="31"><img class="frame" src="img/simulacao/distances32.png" alt="32"><img class="frame" src="img/simulacao/distances33.png" alt="33"><img class="frame" src="img/simulacao/distances34.png" alt="34"><img class="frame" src="img/simulacao/distances35.png" alt="35"><img class="frame" src="img/simulacao/distances36.png" alt="36"><img class="frame" src="img/simulacao/distances37.png" alt="37"><img class="frame" src="img/simulacao/distances38.png" alt="38"><img class="frame" src="img/simulacao/distances39.png" alt="39"><img class="frame" src="img/simulacao/distances40.png" alt="40"><img class="frame" src="img/simulacao/distances41.png" alt="41"><img class="frame" src="img/simulacao/distances42.png" alt="42"><img class="frame" src="img/simulacao/distances43.png" alt="43"><img class="frame" src="img/simulacao/distances44.png" alt="44"><img class="frame" src="img/simulacao/distances45.png" alt="45"><img class="frame" src="img/simulacao/distances46.png" alt="46"><img class="frame" src="img/simulacao/distances47.png" alt="47"><img class="frame" src="img/simulacao/distances48.png" alt="48"><img class="frame" src="img/simulacao/distances49.png" alt="49"><img class="frame" src="img/simulacao/distances50.png" alt="50"><img class="frame" src="img/simulacao/distances51.png" alt="51"><img class="frame" src="img/simulacao/distances52.png" alt="52"><img class="frame" src="img/simulacao/distances53.png" alt="53"><img class="frame" src="img/simulacao/distances54.png" alt="54"><img class="frame" src="img/simulacao/distances55.png" alt="55"><img class="frame" src="img/simulacao/distances56.png" alt="56"><img class="frame" src="img/simulacao/distances57.png" alt="57"><img class="frame" src="img/simulacao/distances58.png" alt="58"><img class="frame" src="img/simulacao/distances59.png" alt="59"><img class="frame" src="img/simulacao/distances60.png" alt="60"><img class="frame" src="img/simulacao/distances61.png" alt="61"><img class="frame" src="img/simulacao/distances62.png" alt="62"><img class="frame" src="img/simulacao/distances63.png" alt="63"><img class="frame" src="img/simulacao/distances64.png" alt="64"></div>
 <h2>Aplicações práticas em que o algoritmo deve ser usado</h2>
 <p>Pense em um contexto de redes de transporte, em uma cidade com várias estações de ônibus ou metrô, cada uma conectada diferentes e diversas rotas específicas. O objetivo é determinar o tempo de viagem mais curto entre todas as estações, considerando todas as possíveis conexões diretas e indiretas.</p>
 <p>Imagine uma cidade com 5 estações de ônibus, de A até E, com as seguintes conexões, diretas e indiretas, e pesos(tempos/distância).
@@ -221,13 +221,15 @@ Assim, a complexidade do algoritmo de Floyd-Warshall é O(n^3).</li>
 </blockquote>
 <h2>Eficiência do Algoritmo</h2>
 <blockquote class="question">
+<p>Exercicio</p>
 <p>E a eficiência do algoritmo?</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>A eficiência de memória será O(n^2).</p>
 <blockquote class="question">
-<p>Reflita mais um pouco antes de ver o gabarito</p>
-<p>Leia a resposta novamente.</p>
+<p>Exercicio</p>
+<p>Reflita mais um pouco antes de ver o gabarito
+Leia a resposta novamente.</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>Estamos determianado o espaço necessário para armazenar essa matriz.
