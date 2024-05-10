@@ -39,7 +39,7 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 <p>Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Qual é a melhor tradução para este código, ou seja,</p>
+<p>Qual é a melhor tradução do grafo para o  código ?</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices</p>
@@ -61,15 +61,19 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 <details class="answer">
 <summary>Gabarito</summary>
 <p>Provavelmente você obteve algo como:
-Onde estão os valores correspondentes a cada vértice e os zeros onde não tem como conectar.</p>
+Onde estão os valores correspondentes a cada vértice e os zeros, respresentando que não há custo no caminho do vértice para ele mesmo.</p>
 <figure class="img"><img src="img/matriz_inicial.png" alt=""></figure>
 </details>
+</blockquote>
 <blockquote class="question">
 <p>Atividade</p>
 <p>A nossa matriz ainda não parece completa, existem muitos espaços em branco entre os vértices que não são conectados diretamente.
-Nós vamos substituir os espaços por infitos, mas será que faz sentido isso mesmo?</p>
+Como prencheremos esse espaço?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>Usaremos o infinito para preenncher esses espaços, para representar que não há nenhum caminho direto entre os vértices.</p>
 <figure class="img"><img src="img/matriz_infinido.png" alt=""></figure>
-</blockquote>
+</details>
 </blockquote>
 <p>Reflita um pouco antes de ir para próxima parte.</p>
 <h2>Simulando o codigo</h2>
@@ -105,7 +109,7 @@ Floyd-Washall:
 <p>Agora precisamos entender como o código realiza essa tarefa, ou seja, como ele pode garantir qual caminho é realmente o mais curto.</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Como o codigo pode ter esta certeza de qual caminho ter o menor custo</p>
+<p>Como o codigo pode ter esta certeza de qual caminho tem  o menor custo</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>O algoritmo realiza essa análise por meio de uma condição que verifica se o caminho direto entre dois vértices é o mais curto, ou se o caminho do primeiro vértice ao vértice auxiliar em uso, e deste último ao vértice de destino, é mais curto.</p>
@@ -219,22 +223,15 @@ Assim, a complexidade do algoritmo de Floyd-Warshall é O(n^3).</li>
 </blockquote>
 </details>
 </blockquote>
-<h2>Eficiência do Algoritmo</h2>
+<h2>Eficiência da Memória do Algoritmo</h2>
 <blockquote class="question">
-<p>E a eficiência do algoritmo?</p>
+<p>Qual a eficiência da memória algoritmo?</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>A eficiência de memória será O(n^2).</p>
-<blockquote class="question">
-<p>Reflita mais um pouco antes de ver o gabarito</p>
-<p>Leia a resposta novamente.</p>
-<details class="answer">
-<summary>Gabarito</summary>
 <p>Estamos determianado o espaço necessário para armazenar essa matriz.
 Temos que ter um vértice de origem e um vértice de destino, como salvamos a matriz em uma última iteração e suas dimensões são n x n.
 Portanto, a complexidade espacial do algoritmo de Floyd-Warshall é O(n^2).</p>
-</details>
-</blockquote>
 </details>
 </blockquote>
 

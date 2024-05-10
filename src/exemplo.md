@@ -24,7 +24,7 @@ O que o código recebe
 Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.
 ??? Atividade
 
-Qual é a melhor tradução para este código, ou seja, 
+Qual é a melhor tradução do grafo para o  código ?
 ::: Gabarito
 
 A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
@@ -50,16 +50,21 @@ Complete a matriz abaixo
 ::: Gabarito
 
 Provavelmente você obteve algo como:
-Onde estão os valores correspondentes a cada vértice e os zeros onde não tem como conectar.
+Onde estão os valores correspondentes a cada vértice e os zeros, respresentando que não há custo no caminho do vértice para ele mesmo.
+
 
 ![](matriz_inicial.png)
 :::
-
+???
 ??? Atividade
 A nossa matriz ainda não parece completa, existem muitos espaços em branco entre os vértices que não são conectados diretamente. 
-Nós vamos substituir os espaços por infitos, mas será que faz sentido isso mesmo?
+Como prencheremos esse espaço?
+::: Gabarito
+
+Usaremos o infinito para preenncher esses espaços, para representar que não há nenhum caminho direto entre os vértices.
 
 ![](matriz_infinido.png)
+::: 
 
 ???
 
@@ -111,7 +116,7 @@ Agora precisamos entender como o código realiza essa tarefa, ou seja, como ele 
 
 ??? Atividade
 
-Como o codigo pode ter esta certeza de qual caminho ter o menor custo 
+Como o codigo pode ter esta certeza de qual caminho tem  o menor custo 
 ::: Gabarito
 
 
@@ -224,14 +229,13 @@ Assim, a complexidade do algoritmo de Floyd-Warshall é O(n^3).
 :::
 ???
 
-Eficiência do Algoritmo
+Eficiência da Memória do Algoritmo
 ------------------------
-??? E a eficiência do algoritmo?
+??? Qual a eficiência da memória algoritmo?
 :::Gabarito
 A eficiência de memória será O(n^2).
-??? Reflita mais um pouco antes de ver o gabarito
-Leia a resposta novamente.
-::: Gabarito
+
+
 Estamos determianado o espaço necessário para armazenar essa matriz.
 Temos que ter um vértice de origem e um vértice de destino, como salvamos a matriz em uma última iteração e suas dimensões são n x n.
 Portanto, a complexidade espacial do algoritmo de Floyd-Warshall é O(n^2).
