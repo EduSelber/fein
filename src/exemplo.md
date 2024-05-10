@@ -3,7 +3,7 @@ Floyd-Washall
 Objetivo do código 
 ---------
 
-Este algorítimo tem o objetivo de encontrar todos os caminhos mais curtos entre os  vértices de um grafo 
+Este algorítimo tem o objetivo de encontrar todos os caminhos de menor custo entre os  vértices de um grafo 
 
 ![](grafo_imagem.png)
 
@@ -15,7 +15,7 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 
 Quando se deve usar o algoritmo de Floyd-Warshall?
 -------------------------------------------------
-O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho mais curto entre todos os pares de nós em um grafo ponderado, ou seja, em cenários que se exige calcular todas as distâncias de pares de vértices.
+O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho de menor peso entre todos os pares de nós em um grafo ponderado, ou seja, em cenários que se exige calcular todas as distâncias de pares de vértices.
 
 
 O que o código recebe 
@@ -24,14 +24,14 @@ O que o código recebe
 Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.
 ??? Atividade
 
-Qual é a melhor tradução para este grafo, ou seja, que estrutura utilizada em programação seria a mais adequada para representá-lo no código?
+Qual é a melhor tradução para este grafo, ou seja, que estrutura seria a mais adequada para representá-lo no código?
 ::: Gabarito
 
 A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
 
 :::
 ???
-Após a tradução do grafo, será gerada uma matriz de tamanho n por n.
+Após a tradução do grafo, será gerada uma matriz de tamanho nxn.
 ??? Atividade
 
 Na matriz, o que significa o código ver a posição linha 1 colouna 2?
@@ -59,30 +59,34 @@ onde os valores representados no grafo são os pesos dos caminhos entre os vért
 :::
 ???
 ??? Atividade
-A nossa matriz ainda não parece completa, existem muitos espaços em branco entre os vértices que não são conectados diretamente. 
-Como prencheremos esse espaço?
+A nossa matriz ainda não parece completa. Existem muitos espaços em branco entre os vértices que não são conectados diretamente. 
+Como preencheremos esse espaço?
 ::: Gabarito
-
-Usaremos o infinito para preenncher esses espaços, para representar que não há nenhum caminho direto entre os vértices.
+Como não há caminho nenhum ligando esses vértices e o objetivo do algortimo é encontrar os menores caminhos, faz sentido atribuir o valor infinito a esses espaços. 
 
 ![](matriz_infinido.png)
+
+Isso é exatamente o que o algoritmo faz, para garantir que encontraremos os caminhos de menor peso
 ::: 
 
 ???
 
-Reflita um pouco antes de ir para próxima parte.
+**Reflita um pouco antes de ir para próxima parte. Só continue após entender que:**
+* grafos podem ser representados por matrizes;
+* como preencher a matriz devidamente a partir do grafo;
 
-Simulando o codigo
+
+Simulando o código
 ---------
 
-O algoritmo de Floyd-Warshall, como mencionado anteriormente, visa encontrar o caminho mais curto entre todos os vértices de um grafo. Se uma pessoa fosse incumbida dessa tarefa, é provável que ela adotasse um método de teste de todas as combinações possíveis para garantir a identificação dos caminhos mais curtos. O método empregado pelo algoritmo não se distancia muito dessa abordagem.
+O algoritmo de Floyd-Warshall, como mencionado anteriormente, visa encontrar o caminho de menor custo entre todos os vértices de um grafo. Se uma pessoa fosse incumbida dessa tarefa, é provável que ela adotasse um método de teste de todas as combinações possíveis para garantir a identificação desses caminhos. O método empregado pelo algoritmo não se distancia muito dessa abordagem.
 
 ??? Atividade
 
-Ok , mas como que o algoritimo testa todos os vértices para ter garantia que encontrou o caminho mais curto entre eles?
+Ok , mas como que o algoritimo testa todos os vértices para ter garantia que encontrou o caminho de mneor custo entre eles?
 ::: Gabarito
 
-Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou o caminho mais curto entre eles, isso é realizado por meio de loops. Esses loops são essenciais para iterar sobre todos os pares de vértices e calcular os caminhos mais curtos entre eles. É importante comentar que o loops iniciam em 0 e vai até n, sendo n a quantidade de vértices. 
+Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou o "melhor" caminho entre eles. Isso é realizado por meio de loops. Esses loops são essenciais para iterar sobre todos os pares de vértices e calcular os caminhos de menor custo entre eles. É importante comentar que o loops iniciam em 0 e vai até n, sendo n a quantidade de vértices. 
 
 :::
 ???
@@ -95,11 +99,12 @@ Floyd-Washall:
     enquanto vértice_origem não for o ultimo vértice:
         enquanto vértice_destino não for o ultimo vértice:
             enquanto c não for o ultimo vértice:
+
             
         
 ```
 
-Voltando à abordagem de uma pessoa para resolver esse problema, após selecionar um vértice, ela começaria a verificar se há um caminho mais curto utilizando esse vértice como ponto de partida.
+Voltando à abordagem de uma pessoa para resolver esse problema, após selecionar um vértice, ela começaria a verificar se há um caminho melhor utilizando esse vértice como ponto de partida.
 
 
 ??? Atividade
@@ -107,22 +112,22 @@ Voltando à abordagem de uma pessoa para resolver esse problema, após seleciona
 Como você faria essa verificação?
 ::: Gabarito
 
-Se sua resposta envolve checar os custos das arestas, está correta, pois, afinal, esse é o único parâmetro que determina se um caminho é realmente o mais curto.
+Se sua resposta envolve checar os custos das arestas, está correta, pois, afinal, esse é o único parâmetro que determina se um caminho é realmente o de mneor peso.
 :::
 
 ???
 
-Agora precisamos entender como o código realiza essa tarefa, ou seja, como ele pode garantir qual caminho é realmente o mais curto.
+Agora precisamos entender como o código realiza essa tarefa, ou seja, como ele pode garantir qual caminho é realmente o de menor custo.
 
 
 
 ??? Atividade
 
-Como o codigo pode ter esta certeza de qual caminho tem  o menor custo 
+Como o código pode ter esta certeza de qual caminho tem  o menor custo 
 ::: Gabarito
 
 
-O algoritmo realiza essa análise por meio de uma condição que verifica se o caminho direto entre dois vértices é o mais curto, ou se o caminho do primeiro vértice ao vértice auxiliar em uso, e deste último ao vértice de destino, é mais curto.
+O algoritmo realiza essa análise por meio de uma condição que verifica se o caminho direto entre dois vértices é o de menor peso, ou se o caminho do primeiro vértice ao vértice auxiliar em uso, e deste último ao vértice de destino, tem o menor peso possível.
 
 :::
 
