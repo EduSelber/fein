@@ -53,18 +53,13 @@ onde os valores representados no grafo são os pesos dos caminhos entre os vért
 
 :::
 ???
-??? Atividade
-A nossa matriz ainda não parece completa. Existem muitos espaços em branco entre os vértices que não são conectados diretamente. 
-Como preencheremos esse espaço?
-::: Gabarito
-Como não há caminho nenhum ligando esses vértices e o objetivo do algortimo é encontrar os menores caminhos, faz sentido atribuir o valor infinito a esses espaços. 
+
+
+
+
+Para preencher os espaços onde não há uma aresta conectando, precisaremos de um número que represente um custo extremamente elevado, indicando a impossibilidade dessa conexão. No código, podemos utilizar o valor do infinito, pois percorrer uma distância infinita entre dois pontos é impossível.
 
 ![](matriz_infinido.png)
-
-Isso é exatamente o que o algoritmo faz, para garantir que encontraremos os caminhos de menor peso
-::: 
-
-???
 
 **Reflita um pouco antes de ir para próxima parte. Só continue após entender que:**
 * grafos podem ser representados por matrizes;
@@ -78,7 +73,7 @@ O algoritmo de Floyd-Warshall, como mencionado anteriormente, visa encontrar o c
 
 ??? Atividade
 
-Ok , mas como que o algoritimo testa todos os vértices para ter garantia que encontrou o caminho de mneor custo entre eles?
+Ok , mas como que o algoritimo testa todos os vértices para ter a garantia que encontrou o caminho de menor custo entre eles?
 ::: Gabarito
 
 Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou o "melhor" caminho entre eles. Isso é realizado por meio de loops. Esses loops são essenciais para iterar sobre todos os pares de vértices e calcular os caminhos de menor custo entre eles. É importante comentar que o loops iniciam em 0 e vai até n, sendo n a quantidade de vértices. 
@@ -104,10 +99,10 @@ Voltando à abordagem de uma pessoa para resolver esse problema, após seleciona
 
 ??? Atividade
 
-Como você faria essa verificação?
+Como você faria essa verificação de saber qual tem o menor custo: o caminho direto ou usando o vértice auxiliar?
 ::: Gabarito
 
-Se sua resposta envolve checar os custos das arestas, está correta, pois, afinal, esse é o único parâmetro que determina se um caminho é realmente o de mneor peso.
+Se sua resposta envolve checar os custos das arestas, está correta, pois, afinal, esse é o único parâmetro que determina se um caminho é mais curto que o outro.
 :::
 
 ???
@@ -118,7 +113,7 @@ Agora precisamos entender como o código realiza essa tarefa, ou seja, como ele 
 
 ??? Atividade
 
-Como o código pode ter esta certeza de qual caminho tem  o menor custo 
+Como o código pode ter esta certeza de qual caminho tem  o menor custo, ou seja, como ele pode fazer essa verificação de qual caminho é o que tem o menor custo?
 ::: Gabarito
 
 
@@ -167,7 +162,7 @@ Complexidade do Algoritmo
 Agora nós já podemos supor como será a complexidade do algoritmo, aspecto crucial para entender em quais contextos ele é mais apropriado.
 
 ??? Exercício: Estimando a complexidade do algoritmo
-3. Com base no contexto anterior, analise a função floydMarshall_rodoviaria e estime a sua comlexidade.
+Com base no contexto anterior, analise a função floydMarshall_rodoviaria e estime a sua complexidade.
 
 :::Gabarito
 O algoritmo tem uma complexidade de O(n^3) . 
