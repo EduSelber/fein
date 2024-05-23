@@ -37,26 +37,19 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 <p>O algoritmo é uma excelente escolha em situações específicas, como quando é necessário calcular o caminho de menor peso entre todos os pares de nós em um grafo ponderado, ou seja, em cenários que se exige calcular todas as distâncias de pares de vértices.</p>
 <h2>O que o código recebe</h2>
 <p>Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.</p>
+<p>Para que o código então consiga fazer essa análise precisaremos de uma estrutura que seja capaz de mostrar a origem e o destino e quanto custa este deslocamento. Em outras palavras, precisaremos de uma estrutura que a quando o código ler ao mesmo tempo a posição que indica o vértice 1 e outra posição que indica o vértice 2 seja retornado o custo desse deslocamento</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Qual é a melhor tradução para este grafo, ou seja, que estrutura seria a mais adequada para representá-lo no código?</p>
+<p>A partir da descrição acima consegue  identificar, qual é a  melhor tradução do grafo para o  código ?</p>
 <details class="answer">
 <summary>Gabarito</summary>
 <p>A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices</p>
 </details>
 </blockquote>
-<p>Após a tradução do grafo, será gerada uma matriz de tamanho nxn.</p>
+<p>Após a tradução do grafo, será gerada uma matriz de tamanho nxn,  sendo que n representa a quantidade de vertíces.</p>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Na matriz, o que significa o código ver a posição linha 1 colouna 2?</p>
-<details class="answer">
-<summary>Gabarito</summary>
-<p>Nessa posição, o código verificará o custo do caminho para sair do vértice 1 e chegar ao vértice 2.</p>
-</details>
-</blockquote>
-<blockquote class="question">
-<p>Atividade</p>
-<p>Complete a matriz abaixo de acordo com o grafo acima.</p>
+<p>Complete a matriz abaixo com base no grafo passado no início do handout. Considere ainda os custos de usar caminhos diretos , ou seja, apenas um passo, uma vez que esse é o input do código. Onde não há uma aresta ligando os vértices não se preocupe em preencher, pois haverá uma explicação sobre o que fazer com esses espaços</p>
 <figure class="img"><img src="img/matriz.png" alt=""></figure>
 <details class="answer">
 <summary>Gabarito</summary>
@@ -144,6 +137,14 @@ No final o código deverá ficar com essa cara:</p>
              se o caminho do vértice vértice_origem -&gt;vértice_destino &gt; o caminho do vértice vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino:
                 vértice_origem -&gt;vértice_destino =vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino
 </code></pre>
+<blockquote class="question">
+<p>Atividade</p>
+<p>Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 1 como auxiliar como ficaria a matriz, usando os princípios do código , ou seja, de ir percorrendo a matriz e testando se com o vértice auxiliar resultaria em caminho de custo menor.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>Foto da matriz</p>
+</details>
+</blockquote>
 <p>Acompanhe pela animação o que acontece com a matriz depois de cada iteração do algoritimo</p>
 <div class="animation"><img class="frame" src="img/Simulacao/distances01.png" alt="1"><img class="frame" src="img/Simulacao/distances02.png" alt="2"><img class="frame" src="img/Simulacao/distances03.png" alt="3"><img class="frame" src="img/Simulacao/distances04.png" alt="4"><img class="frame" src="img/Simulacao/distances05.png" alt="5"><img class="frame" src="img/Simulacao/distances06.png" alt="6"><img class="frame" src="img/Simulacao/distances07.png" alt="7"><img class="frame" src="img/Simulacao/distances08.png" alt="8"><img class="frame" src="img/Simulacao/distances09.png" alt="9"><img class="frame" src="img/Simulacao/distances10.png" alt="10"><img class="frame" src="img/Simulacao/distances11.png" alt="11"><img class="frame" src="img/Simulacao/distances12.png" alt="12"><img class="frame" src="img/Simulacao/distances13.png" alt="13"><img class="frame" src="img/Simulacao/distances14.png" alt="14"><img class="frame" src="img/Simulacao/distances15.png" alt="15"><img class="frame" src="img/Simulacao/distances16.png" alt="16"><img class="frame" src="img/Simulacao/distances17.png" alt="17"><img class="frame" src="img/Simulacao/distances18.png" alt="18"><img class="frame" src="img/Simulacao/distances19.png" alt="19"><img class="frame" src="img/Simulacao/distances20.png" alt="20"><img class="frame" src="img/Simulacao/distances21.png" alt="21"><img class="frame" src="img/Simulacao/distances22.png" alt="22"><img class="frame" src="img/Simulacao/distances23.png" alt="23"><img class="frame" src="img/Simulacao/distances24.png" alt="24"><img class="frame" src="img/Simulacao/distances25.png" alt="25"><img class="frame" src="img/Simulacao/distances26.png" alt="26"><img class="frame" src="img/Simulacao/distances27.png" alt="27"><img class="frame" src="img/Simulacao/distances28.png" alt="28"><img class="frame" src="img/Simulacao/distances29.png" alt="29"><img class="frame" src="img/Simulacao/distances30.png" alt="30"><img class="frame" src="img/Simulacao/distances31.png" alt="31"><img class="frame" src="img/Simulacao/distances32.png" alt="32"><img class="frame" src="img/Simulacao/distances33.png" alt="33"><img class="frame" src="img/Simulacao/distances34.png" alt="34"><img class="frame" src="img/Simulacao/distances35.png" alt="35"><img class="frame" src="img/Simulacao/distances36.png" alt="36"><img class="frame" src="img/Simulacao/distances37.png" alt="37"><img class="frame" src="img/Simulacao/distances38.png" alt="38"><img class="frame" src="img/Simulacao/distances39.png" alt="39"><img class="frame" src="img/Simulacao/distances40.png" alt="40"><img class="frame" src="img/Simulacao/distances41.png" alt="41"><img class="frame" src="img/Simulacao/distances42.png" alt="42"><img class="frame" src="img/Simulacao/distances43.png" alt="43"><img class="frame" src="img/Simulacao/distances44.png" alt="44"><img class="frame" src="img/Simulacao/distances45.png" alt="45"><img class="frame" src="img/Simulacao/distances46.png" alt="46"><img class="frame" src="img/Simulacao/distances47.png" alt="47"><img class="frame" src="img/Simulacao/distances48.png" alt="48"><img class="frame" src="img/Simulacao/distances49.png" alt="49"><img class="frame" src="img/Simulacao/distances50.png" alt="50"><img class="frame" src="img/Simulacao/distances51.png" alt="51"><img class="frame" src="img/Simulacao/distances52.png" alt="52"><img class="frame" src="img/Simulacao/distances53.png" alt="53"><img class="frame" src="img/Simulacao/distances54.png" alt="54"><img class="frame" src="img/Simulacao/distances55.png" alt="55"><img class="frame" src="img/Simulacao/distances56.png" alt="56"><img class="frame" src="img/Simulacao/distances57.png" alt="57"><img class="frame" src="img/Simulacao/distances58.png" alt="58"><img class="frame" src="img/Simulacao/distances59.png" alt="59"><img class="frame" src="img/Simulacao/distances60.png" alt="60"><img class="frame" src="img/Simulacao/distances61.png" alt="61"><img class="frame" src="img/Simulacao/distances62.png" alt="62"><img class="frame" src="img/Simulacao/distances63.png" alt="63"><img class="frame" src="img/Simulacao/distances64.png" alt="64"></div>
 <h2>Complexidade do Algoritmo</h2>

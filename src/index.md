@@ -22,28 +22,23 @@ O que o código recebe
 ---------
 
 Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.
+
+Para que o código então consiga fazer essa análise precisaremos de uma estrutura que seja capaz de mostrar a origem e o destino e quanto custa este deslocamento. Em outras palavras, precisaremos de uma estrutura que a quando o código ler ao mesmo tempo a posição que indica o vértice 1 e outra posição que indica o vértice 2 seja retornado o custo desse deslocamento
 ??? Atividade
 
-Qual é a melhor tradução para este grafo, ou seja, que estrutura seria a mais adequada para representá-lo no código?
+A partir da descrição acima consegue  identificar, qual é a  melhor tradução do grafo para o  código ?
 ::: Gabarito
 
 A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
 
 :::
 ???
-Após a tradução do grafo, será gerada uma matriz de tamanho nxn.
-??? Atividade
+Após a tradução do grafo, será gerada uma matriz de tamanho nxn,  sendo que n representa a quantidade de vertíces.
 
-Na matriz, o que significa o código ver a posição linha 1 colouna 2?
-::: Gabarito
-
-Nessa posição, o código verificará o custo do caminho para sair do vértice 1 e chegar ao vértice 2.
-:::
-???
 
 ??? Atividade
 
-Complete a matriz abaixo de acordo com o grafo acima.
+Complete a matriz abaixo com base no grafo passado no início do handout. Considere ainda os custos de usar caminhos diretos , ou seja, apenas um passo, uma vez que esse é o input do código. Onde não há uma aresta ligando os vértices não se preocupe em preencher, pois haverá uma explicação sobre o que fazer com esses espaços
 
 ![](matriz.png)
 
@@ -157,6 +152,12 @@ Floyd-Washall:
              se o caminho do vértice vértice_origem ->vértice_destino > o caminho do vértice vértice_origem->vértice_intermediário->vértice_destino:
                 vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
+???Atividade
+Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 1 como auxiliar como ficaria a matriz, usando os princípios do código , ou seja, de ir percorrendo a matriz e testando se com o vértice auxiliar resultaria em caminho de custo menor.
+:::Gabarito
+Foto da matriz
+:::
+???
 Acompanhe pela animação o que acontece com a matriz depois de cada iteração do algoritimo
 
 :Simulacao
