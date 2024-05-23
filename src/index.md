@@ -23,10 +23,12 @@ O que o código recebe
 
 Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.
 
-Para que o código então consiga fazer essa análise precisaremos de uma estrutura que seja capaz de mostrar a origem e o destino e quanto custa este deslocamento. Em outras palavras, precisaremos de uma estrutura que a quando o código ler ao mesmo tempo a posição que indica o vértice 1 e outra posição que indica o vértice 2 seja retornado o custo desse deslocamento
+Para que o código então consiga fazer essa análise precisaremos de uma estrutura de dados que seja capaz de mostrar a origem e o destino e quanto custa este deslocamento. Em outras palavras, precisaremos de uma estrutura que a quando o código ler ao mesmo tempo a posição que indica o vértice 1 e outra posição que indica o vértice 2 seja retornado o custo desse deslocamento
 ??? Atividade
 
 A partir da descrição acima consegue  identificar, qual é a  melhor tradução do grafo para o  código ?
+
+**Dica:** Lembre das esturuturas de dados, que são comuns de serem usadas em códigos, tais como listas, matrizes e dicionários
 ::: Gabarito
 
 A melhor forma do algoritimo de conseguir intepretar este grafo é através de uma matriz, em que as linhas e as colunas são os vértices  
@@ -35,12 +37,22 @@ A melhor forma do algoritimo de conseguir intepretar este grafo é através de u
 ???
 Após a tradução do grafo, será gerada uma matriz de tamanho nxn,  sendo que n representa a quantidade de vertíces.
 
+![](matriz.png)
+
+Para preencher essa matriz é necessário observar o grafo e ver os custos, por exemplo:
+
+![](exemplo_preencher.png)
+
+Nesse trecho do grafo vemos que sair do vértice 1 e ir até o vértice 2 terá um custo 2.Para representar isso na matriz ir para a posição da linha 1 coluna  2 e prencher com o valor do custo que é 2.
+No final obteremos essa matriz:
+
+![](matriz_preenchidaapenasum.png)
 
 ??? Atividade
 
-Complete a matriz abaixo com base no grafo passado no início do handout. Considere ainda os custos de usar caminhos diretos , ou seja, apenas um passo, uma vez que esse é o input do código. Onde não há uma aresta ligando os vértices não se preocupe em preencher, pois haverá uma explicação sobre o que fazer com esses espaços
+Complete o resto da matriz ainda utilizando o grafo passado no início do handout. Considere ainda os custos de usar caminhos diretos , ou seja, apenas um passo, uma vez que esse é o input do código. Onde não há uma aresta ligando os vértices não se preocupe em preencher, pois haverá uma explicação sobre o que fazer com esses espaços
 
-![](matriz.png)
+
 
 ::: Gabarito
 
@@ -59,7 +71,7 @@ onde os valores representados no grafo são os pesos dos caminhos entre os vért
 
 Para preencher os espaços onde não há uma aresta conectando, precisaremos de um número que represente um custo extremamente elevado, indicando a impossibilidade dessa conexão. No código, podemos utilizar o valor do infinito, pois percorrer uma distância infinita entre dois pontos é impossível.
 
-![](matriz_infinit![alt text](image.png)o.png)
+![](matriz_infinito)
 
 **Reflita um pouco antes de ir para próxima parte. Só continue após entender que:**
 * grafos podem ser representados por matrizes;
@@ -69,17 +81,17 @@ Para preencher os espaços onde não há uma aresta conectando, precisaremos de 
 Simulando o código
 ---------
 
-O algoritmo de Floyd-Warshall, como mencionado anteriormente, visa encontrar o caminho de menor custo entre todos os vértices de um grafo. Se uma pessoa fosse incumbida dessa tarefa, é provável que ela adotasse um método de teste de todas as combinações possíveis para garantir a identificação desses caminhos. O método empregado pelo algoritmo não se distancia muito dessa abordagem.
+O algoritmo de Floyd-Warshall, como mencionado anteriormente, visa encontrar o caminho de menor custo entre todos os vértices de um grafo. Se uma pessoa fosse incumbida dessa tarefa, é provável que ela adotasse um método de teste de todas as combinações possíveis para garantir a identificação desses caminhos. O método empregado pelo algoritmo não se distancia muito dessa abordagem,visto que ele também poderá testará todas as possibilidades, para ter está garantia.
 
-??? Atividade
-
-Ok , mas como que o algoritimo testa todos os vértices para ter a garantia que encontrou o caminho de menor custo entre eles?
-::: Gabarito
-
-Para fazer isso o algoritmo testa todos os vértices para garantir que encontrou o "melhor" caminho entre eles. Isso é realizado por meio de loops. Esses loops são essenciais para iterar sobre todos os pares de vértices e calcular os caminhos de menor custo entre eles. É importante comentar que o loops iniciam em 0 e vai até n, sendo n a quantidade de vértices. 
-
+Para testar todas as possibilidades é necessário a utilização de loops.
+???Atividade
+Mas quantos loops serão necessários para fazer todos esses testes
+:::Gabarito
+Se você respondeu 3 loops, está certo, uma vez que são necessários 2 loops para percorrer a matriz e o outro para percorrer os vértices auxilar
 :::
+
 ???
+
 ``` c
 O código começa a ter  uma cara assim :
 Floyd-Washall:
@@ -93,35 +105,15 @@ Floyd-Washall:
             
         
 ```
+Esse vértices auxiliar são aqueles que serão usado como um caminho intermediário.
 
+![](exemplo_intermediario.png)
+
+Olhando a imagem acima notamos que o custo de sair do 1 e ir para o 3 é infinito, pois não há nenhuma aresta conectando os dois. No entanto, usando a aresta 2 como vértice auxiliar teremos um custo 4, visto que é a soma dos custo de sair do 1 ir para o 2 e dele ir para o 4. 
 Voltando à abordagem de uma pessoa para resolver esse problema, após selecionar um vértice, ela começaria a verificar se há um caminho melhor utilizando esse vértice como ponto de partida.
 
 
-??? Atividade
-
-Como você faria essa verificação de saber qual tem o menor custo: o caminho direto ou usando o vértice auxiliar?
-::: Gabarito
-
-Se sua resposta envolve checar os custos das arestas, está correta, pois, afinal, esse é o único parâmetro que determina se um caminho é mais curto que o outro.
-:::
-
-???
-
-Agora precisamos entender como o código realiza essa tarefa, ou seja, como ele pode garantir qual caminho é realmente o de menor custo.
-
-
-
-??? Atividade
-
-Como o código pode ter esta certeza de qual caminho tem  o menor custo, ou seja, como ele pode fazer essa verificação de qual caminho é o que tem o menor custo?
-::: Gabarito
-
-
-O algoritmo realiza essa análise por meio de uma condição que verifica se o caminho direto entre dois vértices é o de menor peso, ou se o caminho do primeiro vértice ao vértice auxiliar em uso, e deste último ao vértice de destino, tem o menor peso possível.
-
-:::
-
-???
+O algoritmo para realizar essa análise por meio de uma condição que verifica se o caminho direto entre dois vértices é o de menor peso, ou se o caminho do primeiro vértice ao vértice auxiliar em uso, e deste último ao vértice de destino, tem o menor peso possível.
 Adicionando essa verificação no código:
 ``` c
 Floyd-Washall:
@@ -147,12 +139,20 @@ Floyd-Washall:
              se o caminho do vértice vértice_origem ->vértice_destino > o caminho do vértice vértice_origem->vértice_intermediário->vértice_destino:
                 vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
-???Atividade
-Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 2 como auxiliar como ficaria a matriz, usando os princípios do código , ou seja, de ir percorrendo a matriz e testando se com o vértice auxiliar resultaria em caminho de custo menor.
-:::Gabarito
-![](matriz_resposta.png)
+Ainda usando o vértice 2 como auxiliar temos mais um caminho mais curto que é do 4 ate o 3.
 
-Observe que foi mudado os custos de sair do vértice 1 e ir até o vértice 3, que agora é o custo de sair do 1 e ir para o 2 e do 2 ir para 3 e foi alterado também o custo de sair do vértice 4 e ir para o 3.
+![](exemplo_intermedario2.png)
+
+Como podemos observar, igual no exemplo do 1 até o 3, o caminho direto do 4 até o 3 não existe, sendo assim necessário usar o vértice auxiliar. Depois de calculado o custo dos caminhos podemos atualizar as nossa matriz com os menores custo
+
+![](matriz_respostaexemplopng)
+
+???Atividade
+Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 3 como auxiliar como ficaria a matriz após  atualizar ela com os menores valores.
+:::Gabarito
+![](matriz_respostaexercicio.png)
+
+Observe que foi mudado o custo de sair do vértice 2 e ir até o vértice 4, que agora é o custo de sair do 2 e ir para o 3 e do 3 ir para 4.
 :::
 ???
 Acompanhe pela animação o que acontece com a matriz depois de cada iteração do algoritimo
