@@ -23,7 +23,7 @@ O que o código recebe
 
 Os grafos, sendo representações visuais de relações entre objetos, precisam ser traduzidos para estruturas de dados e algoritmos compreensíveis pelo computador. A tradução para códigos permite que o algoritmo analise e processe as informações contidas no grafo de forma eficiente e sistemática, facilitando a resolução de problemas relacionados a ele.
 
-Para que o código então consiga fazer essa análise precisaremos de uma estrutura de dados que seja capaz de mostrar a origem e o destino e quanto custa este deslocamento. Em outras palavras, precisaremos de uma estrutura que a quando o código ler ao mesmo tempo a posição que indica o vértice 1 e outra posição que indica o vértice 2 seja retornado o custo desse deslocamento
+Para que o código consiga realizar essa análise, precisaremos de uma estrutura de dados capaz de representar a origem, o destino e o custo desse deslocamento. Em outras palavras, precisaremos de uma estrutura que, ao ler simultaneamente a posição que indica o vértice 1 e a posição que indica o vértice 2, retorne o custo desse deslocamento.
 ??? Atividade
 
 A partir da descrição acima consegue  identificar, qual é a  melhor tradução do grafo para o  código ?
@@ -110,7 +110,6 @@ Esse vértices auxiliar são aqueles que serão usado como um caminho intermedi�
 ![](exemplo_intermediario.png)
 
 Olhando a imagem acima notamos que o custo de sair do 1 e ir para o 3 é infinito, pois não há nenhuma aresta conectando os dois. No entanto, usando a aresta 2 como vértice auxiliar teremos um custo 4, visto que é a soma dos custo de sair do 1 ir para o 2 e dele ir para o 4. 
-Voltando à abordagem de uma pessoa para resolver esse problema, após selecionar um vértice, ela começaria a verificar se há um caminho melhor utilizando esse vértice como ponto de partida.
 
 
 O algoritmo para realizar essa análise por meio de uma condição que verifica se o caminho direto entre dois vértices é o de menor peso, ou se o caminho do primeiro vértice ao vértice auxiliar em uso, e deste último ao vértice de destino, tem o menor peso possível.
