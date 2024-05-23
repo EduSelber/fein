@@ -54,12 +54,12 @@ Ele e outros softwares se utilizam do algoritmo de Floyd-Warshall para soluciona
 <details class="answer">
 <summary>Gabarito</summary>
 <p>Provavelmente você obteve algo como:</p>
-<figure class="img"><img src="img/matriz_inicial.png" alt=""></figure>
+<figure class="img"><img src="img/matriz_inicial2.png" alt=""></figure>
 <p>onde os valores representados no grafo são os pesos dos caminhos entre os vértices. É prudente concluir que o peso do caminho de um grafo até ele mesmo seja zero.</p>
 </details>
 </blockquote>
 <p>Para preencher os espaços onde não há uma aresta conectando, precisaremos de um número que represente um custo extremamente elevado, indicando a impossibilidade dessa conexão. No código, podemos utilizar o valor do infinito, pois percorrer uma distância infinita entre dois pontos é impossível.</p>
-<figure class="img"><img src="img/matriz_infinido.png" alt=""></figure>
+<p class="alert">[](matriz_infinit<img src="img/image.png" alt="alt text">o.png)</p>
 <p><strong>Reflita um pouco antes de ir para próxima parte. Só continue após entender que:</strong></p>
 <ul>
 <li>grafos podem ser representados por matrizes;</li>
@@ -130,10 +130,11 @@ No final o código deverá ficar com essa cara:</p>
 </code></pre>
 <blockquote class="question">
 <p>Atividade</p>
-<p>Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 1 como auxiliar como ficaria a matriz, usando os princípios do código , ou seja, de ir percorrendo a matriz e testando se com o vértice auxiliar resultaria em caminho de custo menor.</p>
+<p>Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 2 como auxiliar como ficaria a matriz, usando os princípios do código , ou seja, de ir percorrendo a matriz e testando se com o vértice auxiliar resultaria em caminho de custo menor.</p>
 <details class="answer">
 <summary>Gabarito</summary>
-<p>Foto da matriz</p>
+<figure class="img"><img src="img/matriz_resposta.png" alt=""></figure>
+<p>Observe que foi mudado os custos de sair do vértice 1 e ir até o vértice 3, que agora é o custo de sair do 1 e ir para o 2 e do 2 ir para 3 e foi alterado também o custo de sair do vértice 4 e ir para o 3.</p>
 </details>
 </blockquote>
 <p>Acompanhe pela animação o que acontece com a matriz depois de cada iteração do algoritimo</p>

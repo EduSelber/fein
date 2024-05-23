@@ -46,7 +46,7 @@ Complete a matriz abaixo com base no grafo passado no início do handout. Consid
 
 Provavelmente você obteve algo como:
 
-![](matriz_inicial.png)
+![](matriz_inicial2.png)
 
 onde os valores representados no grafo são os pesos dos caminhos entre os vértices. É prudente concluir que o peso do caminho de um grafo até ele mesmo seja zero.
 
@@ -59,7 +59,7 @@ onde os valores representados no grafo são os pesos dos caminhos entre os vért
 
 Para preencher os espaços onde não há uma aresta conectando, precisaremos de um número que represente um custo extremamente elevado, indicando a impossibilidade dessa conexão. No código, podemos utilizar o valor do infinito, pois percorrer uma distância infinita entre dois pontos é impossível.
 
-![](matriz_infinido.png)
+![](matriz_infinit![alt text](image.png)o.png)
 
 **Reflita um pouco antes de ir para próxima parte. Só continue após entender que:**
 * grafos podem ser representados por matrizes;
@@ -148,9 +148,11 @@ Floyd-Washall:
                 vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
 ???Atividade
-Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 1 como auxiliar como ficaria a matriz, usando os princípios do código , ou seja, de ir percorrendo a matriz e testando se com o vértice auxiliar resultaria em caminho de custo menor.
+Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 2 como auxiliar como ficaria a matriz, usando os princípios do código , ou seja, de ir percorrendo a matriz e testando se com o vértice auxiliar resultaria em caminho de custo menor.
 :::Gabarito
-Foto da matriz
+![](matriz_resposta.png)
+
+Observe que foi mudado os custos de sair do vértice 1 e ir até o vértice 3, que agora é o custo de sair do 1 e ir para o 2 e do 2 ir para 3 e foi alterado também o custo de sair do vértice 4 e ir para o 3.
 :::
 ???
 Acompanhe pela animação o que acontece com a matriz depois de cada iteração do algoritimo
