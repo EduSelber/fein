@@ -71,7 +71,7 @@ onde os valores representados no grafo são os pesos dos caminhos entre os vért
 
 Para preencher os espaços onde não há uma aresta conectando, precisaremos de um número que represente um custo extremamente elevado, indicando a impossibilidade dessa conexão. No código, podemos utilizar o valor do infinito, pois percorrer uma distância infinita entre dois pontos é impossível.
 
-![](matriz_infinito)
+![](matriz_infinito.png)
 
 **Reflita um pouco antes de ir para próxima parte. Só continue após entender que:**
 * grafos podem ser representados por matrizes;
@@ -138,13 +138,13 @@ Floyd-Washall:
              se o caminho do vértice vértice_origem ->vértice_destino > o caminho do vértice vértice_origem->vértice_intermediário->vértice_destino:
                 vértice_origem ->vértice_destino =vértice_origem->vértice_intermediário->vértice_destino
 ```
-Ainda usando o vértice 2 como auxiliar temos mais um caminho mais curto que é do 4 ate o 3.
+Ainda usando o vértice 2 como auxiliar temos mais um caminho mais curto que é em relação a sair do  4  ir até o 3.
 
 ![](exemplo_intermedario2.png)
 
 Como podemos observar, igual no exemplo do 1 até o 3, o caminho direto do 4 até o 3 não existe, sendo assim necessário usar o vértice auxiliar. Depois de calculado o custo dos caminhos podemos atualizar as nossa matriz com os menores custo
 
-![](matriz_respostaexemplopng)
+![](matriz_respostaexemplo.png)
 
 ???Atividade
 Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 3 como auxiliar como ficaria a matriz após  atualizar ela com os menores valores.

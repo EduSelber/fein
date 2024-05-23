@@ -65,7 +65,7 @@ No final obteremos essa matriz:</p>
 </details>
 </blockquote>
 <p>Para preencher os espaços onde não há uma aresta conectando, precisaremos de um número que represente um custo extremamente elevado, indicando a impossibilidade dessa conexão. No código, podemos utilizar o valor do infinito, pois percorrer uma distância infinita entre dois pontos é impossível.</p>
-<figure class="img"><img src="img/matriz_infinito" alt=""></figure>
+<figure class="img"><img src="img/matriz_infinito.png" alt=""></figure>
 <p><strong>Reflita um pouco antes de ir para próxima parte. Só continue após entender que:</strong></p>
 <ul>
 <li>grafos podem ser representados por matrizes;</li>
@@ -121,10 +121,10 @@ No final o código deverá ficar com essa cara:</p>
              se o caminho do vértice vértice_origem -&gt;vértice_destino &gt; o caminho do vértice vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino:
                 vértice_origem -&gt;vértice_destino =vértice_origem-&gt;vértice_intermediário-&gt;vértice_destino
 </code></pre>
-<p>Ainda usando o vértice 2 como auxiliar temos mais um caminho mais curto que é do 4 ate o 3.</p>
+<p>Ainda usando o vértice 2 como auxiliar temos mais um caminho mais curto que é em relação a sair do  4  ir até o 3.</p>
 <figure class="img"><img src="img/exemplo_intermedario2.png" alt=""></figure>
 <p>Como podemos observar, igual no exemplo do 1 até o 3, o caminho direto do 4 até o 3 não existe, sendo assim necessário usar o vértice auxiliar. Depois de calculado o custo dos caminhos podemos atualizar as nossa matriz com os menores custo</p>
-<figure class="img"><img src="img/matriz_respostaexemplopng" alt=""></figure>
+<figure class="img"><img src="img/matriz_respostaexemplo.png" alt=""></figure>
 <blockquote class="question">
 <p>Atividade</p>
 <p>Agora, ainda usando o grafo passado no ínicio do handout, simule usando o vértice 3 como auxiliar como ficaria a matriz após  atualizar ela com os menores valores.</p>
