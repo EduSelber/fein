@@ -147,7 +147,7 @@ Esse vértices auxiliar são aqueles que serão usado como um caminho intermedi�
 
 ![](exemplo_intermediario.png)
 
-Olhando a imagem acima notamos que o custo de sair do 1 e ir para o 3 é infinito, pois não há nenhuma aresta conectando os dois. No entanto, usando a aresta 2 como vértice auxiliar teremos um custo 4, visto que é a soma dos custo de sair do 1 ir para o 2 e dele ir para o 4. 
+Olhando a imagem acima notamos que o custo de sair do 1 e ir para o 3 é infinito, pois não há nenhuma aresta conectando os dois. No entanto, usando a aresta 2 como vértice auxiliar teremos um custo 4, visto que é a soma dos custo de sair do 1 ir para o 2 e dele ir para o 3. 
 
 
 O algoritmo para realizar essa análise por meio de uma condição que verifica se o caminho direto entre dois vértices é o de menor peso, ou se o caminho do primeiro vértice ao vértice auxiliar em uso, e deste último ao vértice de destino, tem o menor peso possível.
