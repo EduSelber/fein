@@ -41,6 +41,8 @@ Após a tradução do grafo, será gerada uma matriz de tamanho nxn,  sendo que 
 
 Para preencher essa matriz é necessário observar o grafo e ver os custos, por exemplo:
 
+![](grafo_imagem.png)
+
 ![](exemplo_preencher.png)
 
 Nesse trecho do grafo vemos que sair do vértice 1 e ir até o vértice 2 terá um custo 2.Para representar isso na matriz ir para a posição da linha 1 coluna  2 e prencher com o valor do custo que é 2.
