@@ -73,6 +73,42 @@ Para preencher os espaços onde não há uma aresta conectando, precisaremos de 
 
 ![](matriz_infinito.png)
 
+??? CheckPoint 
+Vamos imaginar um contexto onde um turista vai passar o dia em uma pequena cidade e deseja visitar quatro lugares diferentes: museu (A), restaurante(B), parque(C) e shopping(D). Como ele não tem muito tempo ele precisa saber qual o menor caminho entre eles para poder planejar o seu dia de maneira mais eficiênte.
+
+1. Como você desenharia essa matriz? 
+*Ela não vai ficar completa ainda, pense em suas dimensões e o que vai em cada lugar*
+
+::: Gabarito
+
+![](checkpointMatriz.png)
+
+???
+
+??? Checkpoint 
+2. A partir das seguintes conexões monte o grafo.
+
+ * Museu conecta com Restaurante em 7 minutos.
+ * Museu conecta com Parque em 9 minutos.
+ * Restaurante conecta com Shopping em 6 minutos.
+ * Parque conecta com Shopping em 4 minutos.
+ * Restaurante conecta com Parque em 3 minutos.
+
+::: Gabarito
+
+![](checkpointGrafo.png)
+
+???
+
+??? Checkpoint
+3. Agora já podemos completar a matriz.
+
+::: Gabarito
+
+![](checkpointMatriz2.png)
+
+???
+
 **Reflita um pouco antes de ir para próxima parte. Só continue após entender que:**
 * grafos podem ser representados por matrizes;
 * como preencher a matriz devidamente a partir do grafo;
@@ -158,6 +194,76 @@ Acompanhe pela animação o que acontece com a matriz depois de cada iteração 
 
 :Simulacao
 
+Exercício
+----------
+Vamos fazer um exercício para checar se entemos o que foi explicado até agora.
+
+??? Modelando o problema
+Pense em um contexto de redes de transporte, em uma cidade com várias estações de ônibus ou metrô, cada uma conectada diferentes e diversas rotas específicas. O objetivo é determinar o tempo de viagem mais curto entre todas as estações, considerando todas as possíveis conexões diretas e indiretas.
+
+Imagine uma cidade com 5 estações de ônibus, de A até E, com as seguintes conexões, diretas e indiretas, e pesos(tempos/distância). 
+Você foi designado a trabalhar na otimização dessa rede.
+
+ * A conecta com B em 4 minutos.
+ * A conecta com D em 10 minutos.
+ * B conecta com C em 5 minutos.
+ * C conecta com B em 5 minutos.
+ * D conecta com E em 15 minutos.
+ * E conecta com B em 10 minutos.
+ * C conecta com E em 7 minutos.
+
+
+1. Pense, quem será a rodoviária e o que o tempo representa no problema.
+
+::: Gabarito
+* Cada estação será um vértice no grafo;
+* Cada rota direta entre duas estações será uma aresta no grafo, com peso correspondente ao tempo de viagem entre essas duas estações.
+
+???
+
+??? Montando a matriz
+2. Aplique a situação descrita na matriz inicial, nesse caso baseando-se nos tempos de viagem diretos entre as estações.
+*Lembre que se não houver conexão direta entre os vértices, o valor passa a ser infinito.*
+
+![](desafioMatrizInicial.png)
+
+::: Gabarito
+
+![](desafioMatriz.png)
+
+???
+
+??? Implementando o algoritmo
+3. Agora você vai implementar uma função floydMarshall_rodoviariao usando o algoritmo para obter o resultado de todos os pares da tabela. 
+
+::: Gabarito 
+
+``` c
+    void floydWarshall_rodoviária() {
+        int dist[V][V], i, j, k;
+
+        // Inicializa a matriz de solução da mesma forma que a matriz de entrada do grafo
+        for (i = 0; i < V; i++)
+            for (j = 0; j < V; j++)
+                dist[i][j] = graph[i][j];
+    // Loops utilizados para calcular a menor distância entre todos os pares de 
+    // vértices através de um vértice intermediário.
+        for (k = 0; k < V; k++) { // Para cada 'k' vértice intermediário.
+            for (i = 0; i < V; i++) {   // Para cada 'i' vértice: origem.
+                for (j = 0; j < V; j++) {  // Para cada 'j' vértice: destino.
+
+                    // atualiza a distância se o caminho for mais curto
+                    if (dist[i][k] + dist[k][j] < dist[i][j])
+                        dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+```
+No final, você terá uma matriz de distâncias que fornecerá o tempo de viagem mais curto entre cada estação rodoviária.
+:::
+???
+
 Complexidade do Algoritmo
 --------------------------
 Agora nós já podemos supor como será a complexidade do algoritmo, aspecto crucial para entender em quais contextos ele é mais apropriado.
@@ -193,74 +299,4 @@ Portanto, a complexidade espacial do algoritmo de Floyd-Warshall é O(n^2).
 :::
 ???
 
-Desafio
--------
 
-??? Desafio 
-Pense em um contexto de redes de transporte, em uma cidade com várias estações de ônibus ou metrô, cada uma conectada diferentes e diversas rotas específicas. O objetivo é determinar o tempo de viagem mais curto entre todas as estações, considerando todas as possíveis conexões diretas e indiretas.
-
-Imagine uma cidade com 5 estações de ônibus, de A até E, com as seguintes conexões, diretas e indiretas, e pesos(tempos/distância). 
-Você foi designado a trabalhar na otimização dessa rede.
-
- * A conecta com B em 4 minutos.
- * A conecta com D em 10 minutos.
- * B conecta com C em 5 minutos.
- * C conecta com B em 5 minutos.
- * D conecta com E em 15 minutos.
- * E conecta com B em 10 minutos.
- * C conecta com E em 7 minutos.
-
-
-*Modelando o problema*
-1. Pense, quem será a rodoviária e o que o tempo representa no problema.
-::: Gabarito
-    * Cada estação será um vértice no grafo;
-    * Cada rota direta entre duas estações será uma aresta no grafo,  com peso correspondente ao tempo de viagem entre essas duas estações.
-
-*Implementando o algoritmo*
-2. Agora você vai implementar o algoritmo. Aplique a situação descrita na matriz inicial, nesse caso baseando nos tempos de viagem diretos entre as estações e se não houver conexão direta, o valor passa a ser infinito. Desenhe a matriz e depois implemente o algoritmo para obter o resultado de todos os pares da tabela. 
-
-::: Gabarito 
-
-![](desafioMatriz.png)
-
-``` c
-    void floydWarshall_rodoviária() {
-        int dist[V][V], i, j, k;
-
-        // Inicializa a matriz de solução da mesma forma que a matriz de entrada do grafo
-        for (i = 0; i < V; i++)
-            for (j = 0; j < V; j++)
-                dist[i][j] = graph[i][j];
-    // Loops utilizados para calcular a menor distância entre todos os pares de 
-    // vértices através de um vértice intermediário.
-        for (k = 0; k < V; k++) { // Para cada 'k' vértice intermediário.
-            for (i = 0; i < V; i++) {   // Para cada 'i' vértice: origem.
-                for (j = 0; j < V; j++) {  // Para cada 'j' vértice: destino.
-
-                    // atualiza a distância se o caminho for mais curto
-                    if (dist[i][k] + dist[k][j] < dist[i][j])
-                        dist[i][j] = dist[i][k] + dist[k][j];
-                }
-            }
-        }
-    }
-```
-No final, você terá uma matriz de distâncias que fornecerá o tempo de viagem mais curto entre cada estação rodoviária.
-:::
-???
-
-Eficiência do Algoritmo
-------------------------
-??? Exercicio
-E a eficiência do algoritmo?
-:::Gabarito
-A eficiência de memória será O(n^2).
-??? Exercicio
-Reflita mais um pouco antes de ver o gabarito
-Leia a resposta novamente.
-::: Gabarito
-Estamos determianado o espaço necessário para armazenar essa matriz.
-Temos que ter um vértice de origem e um vértice de destino, como salvamos a matriz em uma última iteração e suas dimensões são n x n.
-Portanto, a complexidade espacial do algoritmo de Floyd-Warshall é O(n^2).
-:::

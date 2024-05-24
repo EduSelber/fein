@@ -66,6 +66,45 @@ No final obteremos essa matriz:</p>
 </blockquote>
 <p>Para preencher os espaços onde não há uma aresta conectando, precisaremos de um número que represente um custo extremamente elevado, indicando a impossibilidade dessa conexão. No código, podemos utilizar o valor do infinito, pois percorrer uma distância infinita entre dois pontos é impossível.</p>
 <figure class="img"><img src="img/matriz_infinito.png" alt=""></figure>
+<blockquote class="question">
+<p>CheckPoint</p>
+<p>Vamos imaginar um contexto onde um turista vai passar o dia em uma pequena cidade e deseja visitar quatro lugares diferentes: museu (A), restaurante(B), parque© e shopping(D). Como ele não tem muito tempo ele precisa saber qual o menor caminho entre eles para poder planejar o seu dia de maneira mais eficiênte.</p>
+<ol>
+<li>Como você desenharia essa matriz?
+<em>Ela não vai ficar completa ainda, pense em suas dimensões e o que vai em cada lugar</em></li>
+</ol>
+<details class="answer">
+<summary>Gabarito</summary>
+<figure class="img"><img src="img/checkpointMatriz.png" alt=""></figure>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<ol start="2">
+<li>A partir das seguintes conexões monte o grafo.</li>
+</ol>
+<ul>
+<li>Museu conecta com Restaurante em 7 minutos.</li>
+<li>Museu conecta com Parque em 9 minutos.</li>
+<li>Restaurante conecta com Shopping em 6 minutos.</li>
+<li>Parque conecta com Shopping em 4 minutos.</li>
+<li>Restaurante conecta com Parque em 3 minutos.</li>
+</ul>
+<details class="answer">
+<summary>Gabarito</summary>
+<figure class="img"><img src="img/checkpointGrafo.png" alt=""></figure>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Checkpoint</p>
+<ol start="3">
+<li>Agora já podemos completar a matriz.</li>
+</ol>
+<details class="answer">
+<summary>Gabarito</summary>
+<figure class="img"><img src="img/checkpointMatriz2.png" alt=""></figure>
+</details>
+</blockquote>
 <p><strong>Reflita um pouco antes de ir para próxima parte. Só continue após entender que:</strong></p>
 <ul>
 <li>grafos podem ser representados por matrizes;</li>
@@ -136,6 +175,76 @@ No final o código deverá ficar com essa cara:</p>
 </blockquote>
 <p>Acompanhe pela animação o que acontece com a matriz depois de cada iteração do algoritimo</p>
 <div class="animation"><img class="frame" src="img/Simulacao/distances01.png" alt="1"><img class="frame" src="img/Simulacao/distances02.png" alt="2"><img class="frame" src="img/Simulacao/distances03.png" alt="3"><img class="frame" src="img/Simulacao/distances04.png" alt="4"><img class="frame" src="img/Simulacao/distances05.png" alt="5"><img class="frame" src="img/Simulacao/distances06.png" alt="6"><img class="frame" src="img/Simulacao/distances07.png" alt="7"><img class="frame" src="img/Simulacao/distances08.png" alt="8"><img class="frame" src="img/Simulacao/distances09.png" alt="9"><img class="frame" src="img/Simulacao/distances10.png" alt="10"><img class="frame" src="img/Simulacao/distances11.png" alt="11"><img class="frame" src="img/Simulacao/distances12.png" alt="12"><img class="frame" src="img/Simulacao/distances13.png" alt="13"><img class="frame" src="img/Simulacao/distances14.png" alt="14"><img class="frame" src="img/Simulacao/distances15.png" alt="15"><img class="frame" src="img/Simulacao/distances16.png" alt="16"><img class="frame" src="img/Simulacao/distances17.png" alt="17"><img class="frame" src="img/Simulacao/distances18.png" alt="18"><img class="frame" src="img/Simulacao/distances19.png" alt="19"><img class="frame" src="img/Simulacao/distances20.png" alt="20"><img class="frame" src="img/Simulacao/distances21.png" alt="21"><img class="frame" src="img/Simulacao/distances22.png" alt="22"><img class="frame" src="img/Simulacao/distances23.png" alt="23"><img class="frame" src="img/Simulacao/distances24.png" alt="24"><img class="frame" src="img/Simulacao/distances25.png" alt="25"><img class="frame" src="img/Simulacao/distances26.png" alt="26"><img class="frame" src="img/Simulacao/distances27.png" alt="27"><img class="frame" src="img/Simulacao/distances28.png" alt="28"><img class="frame" src="img/Simulacao/distances29.png" alt="29"><img class="frame" src="img/Simulacao/distances30.png" alt="30"><img class="frame" src="img/Simulacao/distances31.png" alt="31"><img class="frame" src="img/Simulacao/distances32.png" alt="32"><img class="frame" src="img/Simulacao/distances33.png" alt="33"><img class="frame" src="img/Simulacao/distances34.png" alt="34"><img class="frame" src="img/Simulacao/distances35.png" alt="35"><img class="frame" src="img/Simulacao/distances36.png" alt="36"><img class="frame" src="img/Simulacao/distances37.png" alt="37"><img class="frame" src="img/Simulacao/distances38.png" alt="38"><img class="frame" src="img/Simulacao/distances39.png" alt="39"><img class="frame" src="img/Simulacao/distances40.png" alt="40"><img class="frame" src="img/Simulacao/distances41.png" alt="41"><img class="frame" src="img/Simulacao/distances42.png" alt="42"><img class="frame" src="img/Simulacao/distances43.png" alt="43"><img class="frame" src="img/Simulacao/distances44.png" alt="44"><img class="frame" src="img/Simulacao/distances45.png" alt="45"><img class="frame" src="img/Simulacao/distances46.png" alt="46"><img class="frame" src="img/Simulacao/distances47.png" alt="47"><img class="frame" src="img/Simulacao/distances48.png" alt="48"><img class="frame" src="img/Simulacao/distances49.png" alt="49"><img class="frame" src="img/Simulacao/distances50.png" alt="50"><img class="frame" src="img/Simulacao/distances51.png" alt="51"><img class="frame" src="img/Simulacao/distances52.png" alt="52"><img class="frame" src="img/Simulacao/distances53.png" alt="53"><img class="frame" src="img/Simulacao/distances54.png" alt="54"><img class="frame" src="img/Simulacao/distances55.png" alt="55"><img class="frame" src="img/Simulacao/distances56.png" alt="56"><img class="frame" src="img/Simulacao/distances57.png" alt="57"><img class="frame" src="img/Simulacao/distances58.png" alt="58"><img class="frame" src="img/Simulacao/distances59.png" alt="59"><img class="frame" src="img/Simulacao/distances60.png" alt="60"><img class="frame" src="img/Simulacao/distances61.png" alt="61"><img class="frame" src="img/Simulacao/distances62.png" alt="62"><img class="frame" src="img/Simulacao/distances63.png" alt="63"><img class="frame" src="img/Simulacao/distances64.png" alt="64"></div>
+<h2>Exercício</h2>
+<p>Vamos fazer um exercício para checar se entemos o que foi explicado até agora.</p>
+<blockquote class="question">
+<p>Modelando o problema</p>
+<p>Pense em um contexto de redes de transporte, em uma cidade com várias estações de ônibus ou metrô, cada uma conectada diferentes e diversas rotas específicas. O objetivo é determinar o tempo de viagem mais curto entre todas as estações, considerando todas as possíveis conexões diretas e indiretas.</p>
+<p>Imagine uma cidade com 5 estações de ônibus, de A até E, com as seguintes conexões, diretas e indiretas, e pesos(tempos/distância).
+Você foi designado a trabalhar na otimização dessa rede.</p>
+<ul>
+<li>A conecta com B em 4 minutos.</li>
+<li>A conecta com D em 10 minutos.</li>
+<li>B conecta com C em 5 minutos.</li>
+<li>C conecta com B em 5 minutos.</li>
+<li>D conecta com E em 15 minutos.</li>
+<li>E conecta com B em 10 minutos.</li>
+<li>C conecta com E em 7 minutos.</li>
+</ul>
+<ol>
+<li>Pense, quem será a rodoviária e o que o tempo representa no problema.</li>
+</ol>
+<details class="answer">
+<summary>Gabarito</summary>
+<ul>
+<li>Cada estação será um vértice no grafo;</li>
+<li>Cada rota direta entre duas estações será uma aresta no grafo, com peso correspondente ao tempo de viagem entre essas duas estações.</li>
+</ul>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Montando a matriz</p>
+<ol start="2">
+<li>Aplique a situação descrita na matriz inicial, nesse caso baseando-se nos tempos de viagem diretos entre as estações.
+<em>Lembre que se não houver conexão direta entre os vértices, o valor passa a ser infinito.</em></li>
+</ol>
+<figure class="img"><img src="img/desafioMatrizInicial.png" alt=""></figure>
+<details class="answer">
+<summary>Gabarito</summary>
+<figure class="img"><img src="img/desafioMatriz.png" alt=""></figure>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Implementando o algoritmo</p>
+<ol start="3">
+<li>Agora você vai implementar uma função floydMarshall_rodoviariao usando o algoritmo para obter o resultado de todos os pares da tabela.</li>
+</ol>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-c">    void floydWarshall_rodoviária() {
+        int dist[V][V], i, j, k;
+
+        // Inicializa a matriz de solução da mesma forma que a matriz de entrada do grafo
+        for (i = 0; i &lt; V; i++)
+            for (j = 0; j &lt; V; j++)
+                dist[i][j] = graph[i][j];
+    // Loops utilizados para calcular a menor distância entre todos os pares de 
+    // vértices através de um vértice intermediário.
+        for (k = 0; k &lt; V; k++) { // Para cada 'k' vértice intermediário.
+            for (i = 0; i &lt; V; i++) {   // Para cada 'i' vértice: origem.
+                for (j = 0; j &lt; V; j++) {  // Para cada 'j' vértice: destino.
+
+                    // atualiza a distância se o caminho for mais curto
+                    if (dist[i][k] + dist[k][j] &lt; dist[i][j])
+                        dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+</code></pre>
+<p>No final, você terá uma matriz de distâncias que fornecerá o tempo de viagem mais curto entre cada estação rodoviária.</p>
+</details>
+</blockquote>
 <h2>Complexidade do Algoritmo</h2>
 <p>Agora nós já podemos supor como será a complexidade do algoritmo, aspecto crucial para entender em quais contextos ele é mais apropriado.</p>
 <blockquote class="question">
@@ -174,81 +283,6 @@ Como o nome já diz, quando estamos falando de eficiência de memória estamos d
 Assim, como salvamos a matriz em uma última iteração e suas dimensões são n x n.
 Portanto, a complexidade espacial do algoritmo de Floyd-Warshall é O(n^2).</li>
 </ul>
-</details>
-</blockquote>
-<h2>Desafio</h2>
-<blockquote class="question">
-<p>Desafio</p>
-<p>Pense em um contexto de redes de transporte, em uma cidade com várias estações de ônibus ou metrô, cada uma conectada diferentes e diversas rotas específicas. O objetivo é determinar o tempo de viagem mais curto entre todas as estações, considerando todas as possíveis conexões diretas e indiretas.</p>
-<p>Imagine uma cidade com 5 estações de ônibus, de A até E, com as seguintes conexões, diretas e indiretas, e pesos(tempos/distância).
-Você foi designado a trabalhar na otimização dessa rede.</p>
-<ul>
-<li>A conecta com B em 4 minutos.</li>
-<li>A conecta com D em 10 minutos.</li>
-<li>B conecta com C em 5 minutos.</li>
-<li>C conecta com B em 5 minutos.</li>
-<li>D conecta com E em 15 minutos.</li>
-<li>E conecta com B em 10 minutos.</li>
-<li>C conecta com E em 7 minutos.</li>
-</ul>
-<p><em>Modelando o problema</em></p>
-<ol>
-<li>Pense, quem será a rodoviária e o que o tempo representa no problema.</li>
-</ol>
-<details class="answer">
-<summary>Gabarito</summary>
-<ul>
-<li>Cada estação será um vértice no grafo;</li>
-<li>Cada rota direta entre duas estações será uma aresta no grafo,  com peso correspondente ao tempo de viagem entre essas duas estações.</li>
-</ul>
-</details>
-<p><em>Implementando o algoritmo</em>
-2. Agora você vai implementar o algoritmo. Aplique a situação descrita na matriz inicial, nesse caso baseando nos tempos de viagem diretos entre as estações e se não houver conexão direta, o valor passa a ser infinito. Desenhe a matriz e depois implemente o algoritmo para obter o resultado de todos os pares da tabela.</p>
-<details class="answer">
-<summary>Gabarito</summary>
-<figure class="img"><img src="img/desafioMatriz.png" alt=""></figure>
-<pre><code class="language-c">    void floydWarshall_rodoviária() {
-        int dist[V][V], i, j, k;
-
-        // Inicializa a matriz de solução da mesma forma que a matriz de entrada do grafo
-        for (i = 0; i &lt; V; i++)
-            for (j = 0; j &lt; V; j++)
-                dist[i][j] = graph[i][j];
-    // Loops utilizados para calcular a menor distância entre todos os pares de 
-    // vértices através de um vértice intermediário.
-        for (k = 0; k &lt; V; k++) { // Para cada 'k' vértice intermediário.
-            for (i = 0; i &lt; V; i++) {   // Para cada 'i' vértice: origem.
-                for (j = 0; j &lt; V; j++) {  // Para cada 'j' vértice: destino.
-
-                    // atualiza a distância se o caminho for mais curto
-                    if (dist[i][k] + dist[k][j] &lt; dist[i][j])
-                        dist[i][j] = dist[i][k] + dist[k][j];
-                }
-            }
-        }
-    }
-</code></pre>
-<p>No final, você terá uma matriz de distâncias que fornecerá o tempo de viagem mais curto entre cada estação rodoviária.</p>
-</details>
-</blockquote>
-<h2>Eficiência do Algoritmo</h2>
-<blockquote class="question">
-<p>Exercicio</p>
-<p>E a eficiência do algoritmo?</p>
-<details class="answer">
-<summary>Gabarito</summary>
-<p>A eficiência de memória será O(n^2).</p>
-<blockquote class="question">
-<p>Exercicio</p>
-<p>Reflita mais um pouco antes de ver o gabarito
-Leia a resposta novamente.</p>
-<details class="answer">
-<summary>Gabarito</summary>
-<p>Estamos determianado o espaço necessário para armazenar essa matriz.
-Temos que ter um vértice de origem e um vértice de destino, como salvamos a matriz em uma última iteração e suas dimensões são n x n.
-Portanto, a complexidade espacial do algoritmo de Floyd-Warshall é O(n^2).</p>
-</details>
-</blockquote>
 </details>
 </blockquote>
 
