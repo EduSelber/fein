@@ -291,7 +291,7 @@ Eficiência da Memória do Algoritmo
 E qual seria a eficiência da memória algoritmo?
 :::Gabarito
 A eficiência de memória será O(n^2).
-Como o nome já diz, quando estamos falando de eficiência de memória estamos determianando o espaço necessário para armazenar essa matriz. Para a matriz utilizada temos:
+Como o nome já diz, quando estamos falando de eficiência de memória estamos determinando o espaço necessário para armazenar essa matriz. Para a matriz utilizada temos:
  * Um vértice de origem.
  * Um vértice de destino.
 Assim, como salvamos a matriz em uma última iteração e suas dimensões são n x n.
